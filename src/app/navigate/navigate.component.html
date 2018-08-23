@@ -1,3 +1,8 @@
-<p>
-  navigate works!
-</p>
+<h3>Welcome to setting</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let patient of patients" class="col-1-4">
+    <div class="module patient">
+      <h4>{{patient.name}}</h4>
+    </div>
+  </a>
+</div>
