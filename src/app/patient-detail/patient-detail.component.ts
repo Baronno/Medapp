@@ -23,8 +23,7 @@ export class PatientDetailComponent implements OnInit {
   }
   getPatient(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    (<any>this).patientService.getPatients(id)
-      .subscribe(patient => this.patient = patient);
+    this.patientService.getPatients(id);
   }
   goBack(): void {
     this.location.back();

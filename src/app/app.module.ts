@@ -8,7 +8,7 @@ import { PatientDetailComponent } from './patient-detail/patient-detail.componen
 
 import { PatientSearchComponent } from './patient-search/patient-search.component';
 import { NavigateComponent } from './navigate/navigate.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
