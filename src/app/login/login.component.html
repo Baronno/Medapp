@@ -1,0 +1,24 @@
+<h1>
+    Welcome to Medapp!
+  </h1>
+<h2>
+<form name="login" onsubmit="javascript:return chkfrm(this);">
+Doctor ID:<input type="text" name="username" onpropertychange="javascript:if(this.value.length>=8)this.form.userpwd.focus();"><br>
+Password:<input type="password" name="userpwd"><br>
+<input type="submit" value="Submit"> <input type="reset" value="Reset">
+</form>
+<script language="javascript">
+function chkfrm(o){
+if(o.username.value==''){
+alert('Wrong ID£¡');
+return false;
+}
+if(o.userpwd.value==''){
+alert('Wrong Password£¡');
+return false;
+}
+alert('Success!');
+return false;
+}
+</script>
+</h2>
