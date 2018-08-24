@@ -1,0 +1,12 @@
+﻿<h2>My details<h2>
+  <ul class="doctor">
+    <li  *ngFor="let patient of patients"
+      [class.selected]="doctor === selectedDoctor"
+      (click)="onSelect(doctor)">
+      <span class="badge">{{doctor.id}}</span> {{doctor.name}} {{doctor.phone}} {{doctor.specialty}}
+    </li>
+  </ul>
+
+  <app-doctor-detail [doctor]="selectedDoctor"></app-doctor-detail>
+  
+  <!--comment>
