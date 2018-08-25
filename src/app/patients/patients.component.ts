@@ -16,6 +16,6 @@ export class PatientsComponent implements OnInit {
     this.getPatients();
   }
   getPatients(): void {
-    this.patients = PatientService.getPatients();
+    this.patients = PatientService. getPatients();
     }
 }

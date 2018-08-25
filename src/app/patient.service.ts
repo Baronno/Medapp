@@ -7,11 +7,12 @@ import {Patients} from './simulate patients';
 })
 export class PatientService {
   constructor() {}
-    getPatients(): Patient[] {
+    static getPatients(): Patient[] {
     return Patients;
   }
 
 
+  getPatients(id: number) {}
 }
 
 
