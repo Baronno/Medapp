@@ -1,4 +1,6 @@
-{
+{"rulesDirectory": [
+  "node_modules/codelyzer"
+],
     "extends": "../tslint.json",
     "rules": {
         "directive-selector": [
