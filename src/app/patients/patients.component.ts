@@ -9,13 +9,18 @@ import {PatientService} from '../patient.service';
 })
 export class PatientsComponent implements OnInit {
   patients: Patient[];
-
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService) {
+  }
 
   ngOnInit() {
     this.getPatients();
   }
+
+
   getPatients(): void {
-    this.patients = PatientService. getPatients();
+   this.patientService.getPatients()
+     .subscribe(patients => this.patients = patients);
+
+
     }
 }

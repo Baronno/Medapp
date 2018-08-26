@@ -1,10 +1,12 @@
 <h2>My patients</h2>
   <ul class="patients">
     <li  *ngFor="let patient of patients">
-      <a routerLink="/detail/{{patient.id}}">
+    <a routerLink="/detail/{{patient.id}}">
       <span class="badge">{{patient.id}}</span> {{patient.name}}
-      </a>>
+      </a>
     </li>
-
   </ul>
+
+
+
 

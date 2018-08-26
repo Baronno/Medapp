@@ -15,7 +15,7 @@ patients: Patient[] = [];
     this.getPatients();
   }
   getPatients(): void {
-    PatientService.getPatients();
+    this.patientService.getPatients();
   }
 
 }

@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PatientsComponent } from './patients/patients.component';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { PatientSearchComponent } from './patient-search/patient-search.component';
 import { NavigateComponent } from './navigate/navigate.component';
 
@@ -14,7 +13,6 @@ import { NavigateComponent } from './navigate/navigate.component';
     AppComponent,
     PatientsComponent,
     PatientDetailComponent,
-    HeroSearchComponent,
     PatientSearchComponent,
     NavigateComponent
   ],

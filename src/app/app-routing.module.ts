@@ -6,9 +6,9 @@ import {NavigateComponent} from './navigate/navigate.component';
 
 
 const routes: Routes = [
-  {path: 'detail/id', component: PatientDetailComponent},
+  {path: 'detail/:id', component: PatientDetailComponent},
   {path: 'patients', component: PatientsComponent},
-  {path:  'navigate', component: NavigateComponent},
+  {path: 'navigate', component: NavigateComponent},
   {path: '', redirectTo: '/navigate', pathMatch: 'full'}];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

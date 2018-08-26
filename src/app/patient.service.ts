@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import {Patient} from './patient';
-import {Patients} from './simulate patients';
+import {PATIENTS} from './simulate patients';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
   constructor() {}
-    static getPatients(): Patient[] {
-    return Patients;
+  getPatients(): Observable<Patient[]> {
+    return of(PATIENTS);
   }
 
 
-  getPatients(id: number) {}
+ getPatient(id: number): Observable<Patient> {
+   return of(PATIENTS.find(patient => patient.id === id));
+  }
+
+
 }
 
 

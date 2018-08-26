@@ -11,7 +11,6 @@ import { PatientService } from '../patient.service';
 })
 export class PatientDetailComponent implements OnInit {
  @Input() patient: Patient;
-
   constructor(
               private route: ActivatedRoute,
               private patientService: PatientService,
@@ -23,7 +22,8 @@ export class PatientDetailComponent implements OnInit {
   }
   getPatient(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.patientService.getPatients(id);
+    this.patientService.getPatient(id)
+      .subscribe(patient => this.patient = patient);
   }
   goBack(): void {
     this.location.back();
