@@ -1,16 +1,20 @@
-# AngularDoctorapp
-
+Medapp
+The purpose is to manage the patient information. 
+It can edit,add and delete patient infromation. And it can edit the doctor's information as well.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
+We are going to use Mysql to edit the database.
 
-## Development server
+Components
+Patients
+Patients detials
+app.component
+doctors setting(not import)
+patient search(not achieve)
+login（not achieve）
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
+we use the router to navigate the different components.
+we use the service to fetch or save data directly rather than components. And the component is only for the display.
+for the test, we are going to use Jasmine to test the app which includes component test and dashboard.But now, we don’t have knowledge about that
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
