@@ -20,7 +20,7 @@ export class PatientsComponent implements OnInit {
   getPatients(): void {
    this.patientService.getPatients()
      .subscribe(patients => this.patients = patients);
-
-
     }
+
 }
+

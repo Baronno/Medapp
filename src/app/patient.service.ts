@@ -3,11 +3,13 @@ import {Patient} from './patient';
 import {PATIENTS} from './simulate patients';
 import {Observable, of} from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class PatientService {
-  constructor() {}
+  constructor(
+  ) {}
   getPatients(): Observable<Patient[]> {
     return of(PATIENTS);
   }
