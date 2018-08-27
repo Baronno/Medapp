@@ -2,6 +2,8 @@
     Welcome to Medapp!
   </h1>
 <h2>
+<button type="button" style="color:salmon" onclick=show1()>Doctor</button>
+<button type="button" onclick=show2()>Patient</button>
 <form name="login" onsubmit="javascript:return chkfrm(this);">
 Doctor ID:<input type="text" name="username" onpropertychange="javascript:if(this.value.length>=8)this.form.userpwd.focus();"><br>
 Password:<input type="password" name="userpwd"><br>
@@ -22,3 +24,55 @@ return false;
 }
 </script>
 </h2>
+<h3> 
+
+<input type="radio" name="test" style="color:blue" value="0">Doctor
+<input type="radio" name="test" style="color:red" value="1">Patient
+  
+
+<form name="login" onsubmit="javascript:return chkfrm(this);">
+Doctor ID:<input type="text" name="username" onpropertychange="javascript:if(this.value.length>=8)this.form.userpwd.focus();"><br>
+Password:<input type="password" name="userpwd"><br>
+<input type="submit" value="Submit"> <input type="reset" value="Reset">
+</form>
+<script language="javascript">
+function chkfrm(o){
+if(o.username.value==''){
+alert('Wrong ID£¡');
+return false;
+}
+if(o.userpwd.value==''){
+alert('Wrong Password£¡');
+return false;
+}
+alert('Success!');
+return false;
+}
+</script>
+
+
+
+<form name="login" onsubmit="javascript:return chkfrm(this);">
+Patient ID:<input type="text" name="username" onpropertychange="javascript:if(this.value.length>=8)this.form.userpwd.focus();"><br>
+Password:<input type="password" name="userpwd"><br>
+<input type="submit" value="Submit"> <input type="reset" value="Reset">
+</form>
+<script language="javascript">
+function chkfrm(o){
+if(o.username.value==''){
+alert('Wrong ID£¡');
+return false;
+}
+if(o.userpwd.value==''){
+alert('Wrong Password£¡');
+return false;
+}
+alert('Success!');
+return false;
+}
+</script>
+
+
+
+</h3>
+
