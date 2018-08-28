@@ -1,2 +1,19 @@
 <h3>Welcome to setting</h3>
+<h2>{{doctor.name}} Details</h2>
+<div><span>id: </span>{{doctor.id}}</div>
+<div>
+  <label>name:
+    <input [(ngModel)]="doctor.name" placeholder="name"/>
+  </label>
+</div>
+<div>
+  <label>phone:
+    <input [(ngModel)]="doctor.phone" placeholder="phone"/>
+  </label>
+</div>
+<div>
+  <label>specialty:
+    <input [(ngModel)]="doctor.specialty" placeholder="specialty"/>
+  </label>
+</div>
 

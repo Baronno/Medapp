@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Patient} from '../patient';
-import {PatientService} from '../patient.service';
+import { Doctor } from '../doctor';
 
 @Component({
   selector: 'app-navigate',
@@ -8,14 +7,14 @@ import {PatientService} from '../patient.service';
   styleUrls: ['./navigate.component.css']
 })
 export class NavigateComponent implements OnInit {
-patients: Patient[] = [];
-  constructor(private patientService: PatientService) { }
+doctor: Doctor = {
+  id: 101,
+  name: 'Dr. House',
+  phone: 1111212111,
+  specialty: 'Cadiogy'
+};
+  constructor() { }
 
   ngOnInit() {
-    this.getPatients();
   }
-  getPatients(): void {
-    this.patientService.getPatients();
-  }
-
 }
