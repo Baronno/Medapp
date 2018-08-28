@@ -1,6 +1,6 @@
 label {
   display: inline-block;
-  width: 3em;
+  width: 62em;
   margin: .5em 0;
   color: #607D8B;
   font-weight: bold;
@@ -17,7 +17,7 @@ button {
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
-  cursor: pointer; cursor: hand;
+  cursor: pointer;
 }
 button:hover {
   background-color: #cfd8dc;
