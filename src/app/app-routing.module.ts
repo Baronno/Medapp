@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'navigate', component: NavigateComponent},
   {path: 'login', component: LoginformComponent},
   {path: 'home', component: HomeComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'}];
+  {path: '', redirectTo: '/login', pathMatch: 'full'}];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
