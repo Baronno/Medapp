@@ -1,0 +1,9 @@
+div {
+    text-align: center; 
+    vertical-align: middle;
+    margin-top: 40px;
+}
+img {
+    max-width: 80%;
+    max-height: 450px;
+}

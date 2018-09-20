@@ -9,7 +9,10 @@ div.input {
     position: relative;
 }
 
-div.intput label {
+div.input label {
+    color: #679bb6;
+    text-align: center;
+    font-family: "trebuchet MS";
     position: absolute;
     top: 0;
     transform: translateY(-50%);
@@ -19,11 +22,14 @@ div.intput label {
 }
 
 div.input input {
-    padding: 10px 20px;
+    text-align: center;
+    font-family: "trebuchet MS";
+    padding: 10px 40px;
     font-size: 25 px;
     outline: 0;
 }
 
 div.input {
+    text-align: center;
     margin-top: 20px;
 }
