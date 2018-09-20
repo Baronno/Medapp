@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
 export class AppComponent {
   title = 'MedApp';
   doctor = 'Dr. House';
-  loggedUser = true;
+  @Input() public loggedUser: boolean;
   
 }
