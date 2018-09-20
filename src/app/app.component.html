@@ -1,13 +1,15 @@
-<h1>Welcome to {{title}}</h1>
+<div>
+  <h1>Welcome to {{title}}</h1>
+</div>
 
 <div *ngIf="loggedUser">
-<nav>
-  <a routerLink = "/home">Home</a>
-  <a routerLink = "/patients">Patients</a>
-  <a routerLink = "/navigate">Settings</a>
-  <a routerLink = "/login">Log Out</a>
+  <nav>
+      <a routerLink = "/home">Home</a>
+      <a routerLink = "/patients">Patients</a>
+      <a routerLink = "/navigate">Settings</a>
+      <a style="float:right" routerLink = "/login">Log Out</a>
   </nav>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>
 
 <div *ngIf="!loggedUser">

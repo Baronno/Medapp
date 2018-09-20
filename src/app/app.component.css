@@ -1,28 +1,35 @@
 h1 {
-  font-size: 1.2em;
-  color: #999;
+  font-family: "trebuchet MS";
+  font-size: 1.5em;
+  color: rgb(116,170,194);
   margin-bottom: 0;
 }
 h2 {
+  font-family: "trebuchet MS";
   font-size: 2em;
   margin-top: 0;
   padding-top: 0;
 }
-nav a {
-  padding: 5px 10px;
-  text-decoration: none;
+
+nav {
+  background-color: #679bb6;
   margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+nav a {  
+  list-style-type: none;
+  font-family: "trebuchet MS";
+  padding: 10px 40px;
+  text-decoration: none;
   display: inline-block;
-  background-color: #eee;
-  border-radius: 4px;
+  background-color: #679bb6;
 }
 nav a:visited, a:link {
-  color: #607d8b;
+  color: #ffffff;
 }
 nav a:hover {
-  color: #039be5;
+  color: #679bb6;
   background-color: #cfd8dc;
 }
-nav a.active {
-  color: #039be5;
-}
+
