@@ -2,8 +2,14 @@
     flex-grow: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
+
+h1 {
+    font-family: "trebuchet MS";
+    font-size: 1.5em;
+    color: rgb(116,170,194);
+    margin-bottom: 10px;
+  }
 
 div.input {
     position: relative;
@@ -31,4 +37,11 @@ div.input input {
 div.input {
     text-align: center;
     margin-top: 20px;
+}
+
+div a {
+    font-family: "trebuchet MS";
+    color: rgb(24, 134, 51);
+    margin-top: 50px;
+    top: 40px;
 }

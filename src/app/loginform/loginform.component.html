@@ -1,4 +1,8 @@
 
+<h1>
+  Login
+</h1>
+
 <form (submit)="loginUser($event)">
   <div style="margin-top: 90px" class="input">
     <label>Username</label>
@@ -9,6 +13,9 @@
     <input type="password">
   </div>
   <div class="input">
-    <input type="submit" value="Login">
+    <input type="submit" value="Login"> 
+  </div>
+  <div class="input">
+      <a [routerLink]="['/register']">Register</a>
   </div>
 </form>
