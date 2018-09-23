@@ -22,7 +22,6 @@ export class LoginformComponent implements OnInit {
 
     if(username == 'admin' && password == 'a') {
       this.router.navigate(['home']);
-    }
-      
+    }      
   }
 }

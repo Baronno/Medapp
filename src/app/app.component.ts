@@ -12,3 +12,4 @@ export class AppComponent {
   @Input() public loggedUser: boolean;
   
 }
+

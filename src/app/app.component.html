@@ -7,12 +7,12 @@
   </table>
 </div>
 
-<div *ngIf="loggedUser">
+<div *ngIf="!loggedUser">
   <nav>
       <a routerLink = "/home">Home</a>
       <a routerLink = "/patients">Patients</a>
       <a routerLink = "/navigate">Settings</a>
-      <a style="float:right" routerLink = "/login">Log Out</a>
+      <a style="float:right" routerLink = "">Log Out</a>
   </nav>
   <router-outlet></router-outlet>
 </div>

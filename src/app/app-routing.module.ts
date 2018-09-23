@@ -13,7 +13,9 @@ const routes: Routes = [
   {path: 'navigate', component: NavigateComponent},
   {path: 'login', component: LoginformComponent},
   {path: 'home', component: HomeComponent},
-  {path: '', redirectTo: '/login', pathMatch: 'full'}];
+  {path: '', component: LoginformComponent},
+]
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
