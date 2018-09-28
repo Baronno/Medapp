@@ -9,9 +9,11 @@ import { Doctor } from '../doctor';
 export class NavigateComponent implements OnInit {
 doctor: Doctor = {
   id: 101,
+  email: 'email@mail.com',
+  password: 'password',
   name: 'Dr. House',
   phone: 1111212111,
-  specialty: 'Cadiogy'
+  specialty: 'Cardiology'
 };
   constructor() { }
 

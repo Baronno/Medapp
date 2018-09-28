@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 
@@ -9,7 +9,9 @@ import { AppComponent } from '../app.component';
 })
 export class LoginformComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,
+              private appComponent:AppComponent    
+    ) { }
 
   ngOnInit() {
   }
@@ -22,6 +24,7 @@ export class LoginformComponent implements OnInit {
 
     if(username == 'admin' && password == 'a') {
       this.router.navigate(['home']);
+      this.appComponent.setLoggedUser(true);
     }      
   }
 }

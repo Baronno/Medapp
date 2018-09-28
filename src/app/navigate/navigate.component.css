@@ -1,4 +1,5 @@
 label {
+  font-family: "trebuchet MS";
   display: inline-block;
   width: 62em;
   margin: .5em 0;
@@ -6,13 +7,14 @@ label {
   font-weight: bold;
 }
 input {
+  font-family: "trebuchet MS";
   height: 2em;
   font-size: 1em;
   padding-left: .4em;
 }
 button {
   margin-top: 20px;
-  font-family: Arial;
+  font-family: "trebuchet MS";
   background-color: #eee;
   border: none;
   padding: 5px 10px;
@@ -27,3 +29,46 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+
+h1 {
+  font-family: "trebuchet MS";
+  font-size: 1.5em;
+  color: rgb(116,170,194);
+  margin-bottom: 0;
+}
+h2 {
+  font-family: "trebuchet MS";
+  font-size: 2em;
+  margin-top: 0;
+  padding-top: 0;
+}
+div {
+  font-family: "trebuchet MS";
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+ul {
+  list-style: none;
+}
+nav {
+  background-color: #679bb6;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+nav a {  
+  list-style-type: none;
+  font-family: "trebuchet MS";
+  padding: 10px 40px;
+  text-decoration: none;
+  display: inline-block;
+  background-color: #679bb6;
+}
+nav a:visited, a:link {
+  color: #ffffff;
+}
+nav a:hover {
+  color: #679bb6;
+  background-color: #cfd8dc;
+}
+
