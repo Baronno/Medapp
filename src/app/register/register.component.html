@@ -1,3 +1,41 @@
-<p>
-  register works!
-</p>
+<h1>
+    Register
+  </h1>
+  
+  <form (submit)="registerDoctor($event)">
+
+    <div class="input">
+      <label>Name</label>
+      <input type="text">
+    </div>
+
+    <div class="input">
+      <label>E-mail</label>
+      <input type="text">
+    </div>
+
+    <div class="input">
+      <label>Password</label>
+      <input type="password">
+    </div>
+
+    <div class="input">
+      <label>Re-enter password</label>
+      <input type="password">
+    </div>
+
+    <div class="input">
+      <label>Phone</label>
+      <input type="text">
+    </div>
+
+    <div class="input">
+      <label>Specialty</label>
+      <input type="text">
+    </div>
+
+    <div class="input">
+      <input type="submit" value="Register"> 
+    </div>
+    
+  </form>

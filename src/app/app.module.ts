@@ -11,7 +11,6 @@ import { NavigateComponent } from './navigate/navigate.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginformComponent } from './loginform/loginform.component';
 import { HomeComponent } from './home/home.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { RegisterComponent } from './register/register.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { RegisterComponent } from './register/register.component';
     NavigateComponent,
     LoginformComponent,
     HomeComponent,
-    DashboardComponent,
     RegisterComponent
   ],
   imports: [

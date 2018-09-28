@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Patient} from '../patient';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';

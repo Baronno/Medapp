@@ -1,0 +1,49 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: "trebuchet MS";
+    font-size: 1.5em;
+    color: rgb(116,170,194);
+    margin-bottom: 10px;
+    
+  }
+
+div.input {
+    position: relative;
+}
+
+div.input label {
+    color: #679bb6;
+    text-align: center;
+    font-family: "trebuchet MS";
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    left: 10px;
+    background: white;
+    padding: 5px 2px;
+}
+
+div.input input {
+    font-family: "trebuchet MS";
+    padding: 10px 40px;
+    font-size: 25 px;
+    outline: 0;
+}
+
+div.input {
+    text-align: center;
+    margin-top: 20px;
+}
+
+div a {
+    font-family: "trebuchet MS";
+    color: rgb(24, 134, 51);
+    margin-top: 10px;
+    top: 10px;
+}
