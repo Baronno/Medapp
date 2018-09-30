@@ -11,6 +11,8 @@ import { Doctor } from '../doctor';
 })
 export class LoginformComponent implements OnInit {
 
+  showAlert:boolean = false;
+
   constructor(private router:Router,
               private appComponent:AppComponent,    
               private doctorService:DoctorService
@@ -33,6 +35,9 @@ export class LoginformComponent implements OnInit {
       this.router.navigate(['home']);
       this.appComponent.setLoggedUser(true);
       this.appComponent.setDoctor(username);
+    }
+    else{
+      this.showAlert = true;
     }
   }
 }

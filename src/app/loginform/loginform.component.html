@@ -2,6 +2,10 @@
   Login
 </h1>
 
+<div *ngIf="showAlert" class="alert">
+  Invalid credentials
+</div>
+
 <form (submit)="loginUser($event)">
   <div class="input">
     <label>E-mail</label>

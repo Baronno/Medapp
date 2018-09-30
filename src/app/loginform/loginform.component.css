@@ -47,3 +47,12 @@ div a {
     margin-top: 10px;
     top: 10px;
 }
+
+.alert {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "trebuchet MS";
+    padding: 5px;
+    background-color: #f44336;
+    color: white;
+}

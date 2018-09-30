@@ -22,7 +22,6 @@ export class DoctorService {
     if (DOCTORS.find(doctor => doctor.email === email && doctor.password === password))
         return true;
     else
-        console.log('false');
         return false;
   }
 }
