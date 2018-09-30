@@ -14,14 +14,16 @@ export class DoctorService {
     return of(DOCTORS);
   }
 
-
  getDoctor(email: string): Observable<Doctor> {
    return of(DOCTORS.find(doctor => doctor.email === email));
   }
 
   logIn(email: string, password: string){
-    return of(DOCTORS.find(doctor => doctor.email === email && doctor.password === password))
+    if (DOCTORS.find(doctor => doctor.email === email && doctor.password === password))
+        return true;
+    else
+        console.log('false');
+        return false;
   }
-
 }
 

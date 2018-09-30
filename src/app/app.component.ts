@@ -10,15 +10,14 @@ import { DoctorService } from './doctor.service';
 
 export class AppComponent {
   title = 'MedApp';
+  private _loggedUser: boolean = false;
+  private _registering: boolean = false;
+
+  @Input() doctor: Doctor;
 
   constructor (
     private doctorService:DoctorService
   ){}
-
-  @Input() doctor = this.doctorService.getDoctor('example@mail.com');  
-  
-  private _loggedUser: boolean = false;
-  private _registering: boolean = false;
 
   public setRegistering(data:boolean)  {
     this._registering = data;
@@ -26,6 +25,11 @@ export class AppComponent {
 
   public setLoggedUser(data:boolean) {
     this._loggedUser = data;
+  }
+
+  public setDoctor(data:string): void {
+    this.doctorService.getDoctor(data)
+    .subscribe(doctor => this.doctor = doctor);
   }
   
 }

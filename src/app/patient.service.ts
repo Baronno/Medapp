@@ -10,10 +10,10 @@ import {Observable, of} from 'rxjs';
 export class PatientService {
   constructor(
   ) {}
+
   getPatients(): Observable<Patient[]> {
     return of(PATIENTS);
   }
-
 
  getPatient(id: number): Observable<Patient> {
    return of(PATIENTS.find(patient => patient.id === id));
