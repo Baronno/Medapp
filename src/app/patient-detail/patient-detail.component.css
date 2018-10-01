@@ -1,7 +1,15 @@
+table {
+  width: 50%;  
+}
+
+tr {
+  height: 3.5em;
+}
+
 label {
   font-family: "trebuchet MS";
-  display: inline-block;
-  width: 62em;
+  /*display: inline-block;
+  width: 62em;*/
   margin: .5em 0;
   color: #607D8B;
   font-weight: bold;
@@ -10,7 +18,11 @@ input {
   font-family: "trebuchet MS";
   height: 2em;
   font-size: 1em;
-  padding-left: .4em;
+  /*padding-left: .4em;*/
+}
+textarea {
+  font-family: "trebuchet MS";
+  font-size: 1em;
 }
 button {
   margin-top: 20px;
