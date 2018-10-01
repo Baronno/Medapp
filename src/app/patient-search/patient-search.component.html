@@ -5,7 +5,7 @@
   <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
 
   <ul class="search-result">
-    <li *ngFor="let patient of hero$ | async" >
+    <li *ngFor="let patient of patients$ | async" >
         {{patients.name}}
     </li>
   </ul>
