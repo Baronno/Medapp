@@ -28,4 +28,7 @@ export class PatientDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+  sendReminder(){
+    
+  }
 }

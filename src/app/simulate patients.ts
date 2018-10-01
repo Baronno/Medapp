@@ -10,6 +10,8 @@ export const PATIENTS: Patient[] = [
   { id: 221, doctorid: 103, name: 'Melanie White', age: 41 , mobile: 428767620, description: 'Needs a hip replacement' },
   { id: 222, doctorid: 101, name: 'Thomas Martin', age: 65 , mobile: 425452526, description: 'Smokes too much' },
   { id: 223, doctorid: 102, name: 'James Anderson' , age: 34 , mobile: 422885864, description: 'Healthy'},
-  { id: 224, doctorid: 101, name: 'Alex Thompson', age: 21 , mobile: 422115546, description: 'Under antibiotics'}
+  { id: 224, doctorid: 101, name: 'Alex Thompson', age: 21 , mobile: 422115546, description: 'Under antibiotics'},
+  { id: 225, doctorid: 104, name: 'Bryan Nguyen' , age: 34 , mobile: 477552119, description: 'Healthy'},
+  { id: 226, doctorid: 104, name: 'Janis Joplin' , age: 34 , mobile: 423658410, description: 'Needs to stop smoking'}
 ];
 

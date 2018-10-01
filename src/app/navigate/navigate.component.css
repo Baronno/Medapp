@@ -1,7 +1,15 @@
+table {
+  width: 50%;  
+}
+
+tr {
+  height: 3.5em;
+}
+
 label {
   font-family: "trebuchet MS";
-  display: inline-block;
-  width: 62em;
+  /*display: inline-block;*/
+  /*width: 802em;*/
   margin: .5em 0;
   color: #607D8B;
   font-weight: bold;
@@ -20,6 +28,7 @@ button {
   padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
+  align-items: center;
 }
 button:hover {
   background-color: #cfd8dc;
@@ -38,7 +47,7 @@ h1 {
 }
 h2 {
   font-family: "trebuchet MS";
-  font-size: 2em;
+  font-size: 1.8em;
   margin-top: 0;
   padding-top: 0;
 }
