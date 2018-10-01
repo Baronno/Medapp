@@ -31,7 +31,7 @@ div.input label {
 
 div.input input {
     font-family: "trebuchet MS";
-    padding: 10px 40px;
+    padding: 10px 70px;
     font-size: 25 px;
     outline: 0;
 }
@@ -46,4 +46,14 @@ div a {
     color: rgb(24, 134, 51);
     margin-top: 10px;
     top: 10px;
+}
+
+.alert {
+    font-style: italic;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "trebuchet MS";
+    padding: 5px;
+    color: #f53d3dc7;
 }

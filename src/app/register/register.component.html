@@ -8,34 +8,57 @@
       <label>Name</label>
       <input type="text">
     </div>
+    <div *ngIf="showAlertName" class="alert">
+        Enter your name
+    </div>
 
     <div class="input">
       <label>E-mail</label>
       <input type="text">
+    </div>
+    <div *ngIf="showAlertEmail" class="alert">
+        Enter a valid e-mail
     </div>
 
     <div class="input">
       <label>Password</label>
       <input type="password">
     </div>
+    <div *ngIf="showAlertPassword" class="alert">
+        Password must contain a minimum  <br>
+        of 8 characters, a letter and a number
+    </div>
 
     <div class="input">
       <label>Re-enter password</label>
       <input type="password">
+    </div>
+    <div *ngIf="showAlertConfirm" class="alert">
+        Password does not match
     </div>
 
     <div class="input">
       <label>Phone</label>
       <input type="text">
     </div>
+    <div *ngIf="showAlertPhone" class="alert">
+        Enter your phone
+    </div>
 
     <div class="input">
       <label>Specialty</label>
       <input type="text">
     </div>
+    <div *ngIf="showAlertSpecialty" class="alert">
+        Enter your specialty
+    </div>
 
     <div class="input">
       <input type="submit" value="Register"> 
+    </div>
+
+    <div class="input" style="margin-bottom: 35px">
+        <a [routerLink]="['/login']" (click)="changeToLogin()">Already have an account?</a>      
     </div>
     
   </form>

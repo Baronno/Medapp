@@ -49,10 +49,11 @@ div a {
 }
 
 .alert {
+    font-style: italic;
+    text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
     font-family: "trebuchet MS";
     padding: 5px;
-    background-color: #f53d3dc7;
-    color: white;
+    color: #f53d3dc7;
 }

@@ -17,13 +17,14 @@ export class PatientsComponent implements OnInit {
   ) {  }
 
   doctorId = this.appComponent.doctor.id;
+  searchString:string;
 
   ngOnInit() {
     this.getPatients();
   }
 
   getPatients(): void {
-   this.patientService.getPatients(this.doctorId)
+   this.patientService.getPatients(this.doctorId,this.searchString)
      .subscribe(patients => this.patients = patients);
     }
 

@@ -29,6 +29,7 @@ export class PatientDetailComponent implements OnInit {
     this.location.back();
   }
   sendReminder(){
+    
                 /*var nodemailer = require('nodemailer');
                /* let transporter = nodemailer.createTransport({
                   service:'gmail',

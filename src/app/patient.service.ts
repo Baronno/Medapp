@@ -11,7 +11,7 @@ export class PatientService {
   constructor(
   ) {}
 
-  getPatients(doctorId: number): Observable<Patient[]> {
+  getPatients(doctorId: number, searchString: string): Observable<Patient[]> {
     return of(PATIENTS.filter(patient => patient.doctorid === doctorId));
   }
 
