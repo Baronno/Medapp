@@ -4,19 +4,28 @@ import { HttpClient } from '@angular/common/http';
 import { Patient } from '../patient';
 import {PatientService} from '../patient.service';
 import {Observable, of} from 'rxjs';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.component.html',
   styleUrls: ['./patients.component.css']
 })
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class PatientsComponent implements OnInit {
   patients: Patient[];
-  constructor(private http: HttpClient/*private patientService: PatientService*/) {
-  }
+  constructor(
+    private http: HttpClient,
+    /*private patientService: PatientService,*/
+    private appComponent: AppComponent
+  ) { }
+
+  doctorId = this.appComponent.doctor.id;
+  searchString:string;
 
   ngOnInit() {
     this.getPatients();
