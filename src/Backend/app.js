@@ -47,32 +47,24 @@ app.post("/api/patient", (req, res, next) => {
 });
 
 app.get("/api/patient", (req, res, next) => {
-  /*const patients = [
-    {
-      id: 1,
-      name: "AAA",
-      age: 10,
-      mobile: 6,
-      description: "cancer"
-    },
-    {
-      id: 2,
-      name: "BBB",
-      age: 10,
-      mobile: 6,
-      description: "cancer"
-    }
-  ];*/
   Patient.find().then(documents => {
     res.status(200).json({
       message: 'succes',
       patients: documents
     });
   });
-  /*res.status(200).json({
-    message: 'succes',
-    patients: patients
-  });*/
+});
+
+app.get("/api/patient/:id", (req, res, next) => {
+  console.log(req.id);
+  const id = parseInt(req.params.id,10)
+  Patient.findOne({id: id}).then(documents => {
+    console.log(documents);
+    res.status(200).json({
+      message: 'succes',
+      patients: documents
+    });
+  });
 });
 
 module.exports = app;

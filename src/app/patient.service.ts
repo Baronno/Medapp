@@ -23,7 +23,7 @@ export class PatientService {
   private patients: Patient[];
   //private patientsUpdated = new Subject<Patient[]>();
 
-  constructor(private http: HttpClient) {}
+  /*constructor(private http: HttpClient) {}
 
   /*getPatients(): Observable<Patient[]> {
     return of(PATIENTS);
@@ -33,7 +33,7 @@ export class PatientService {
     return of(PATIENTS.find(patient => patient.id === id));
   }*/
 
-  getPatients(): Observable<Patient[]> {
+  /*getPatients(): Observable<Patient[]> {
     this.http
     .get<{message: string, patients: Patient[]}>('http://localhost:3000/api/patient')
     .subscribe((patientData) => {
@@ -55,9 +55,9 @@ export class PatientService {
   }
 
 <<<<<<< HEAD
-     
-  
-=======
+
+
+=======*/
   /*getPatientUpdateListener() {
     return this.patientUpdated;=.asObservable();
   }
