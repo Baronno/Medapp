@@ -8,6 +8,4 @@ var patientSchema = new mongoose.Schema({
   description : String
 });
 
-var patientModel = mongoose.model('patient', patientSchema);
-
-module.exports = patientModel;
+module.exports = mongoose.model('patient', patientSchema);
