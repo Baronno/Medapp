@@ -12,6 +12,7 @@ import { NavigateComponent } from './navigate/navigate.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginformComponent } from './loginform/loginform.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     PatientSearchComponent,
     NavigateComponent,
     LoginformComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
