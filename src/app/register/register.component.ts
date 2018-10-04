@@ -34,14 +34,15 @@ export class RegisterComponent implements OnInit {
     console.log(e);
 
     var name = e.target.elements[0].value;
-    if (name=='')
+    var regexpName = new RegExp(/^[A-Za-z]{2,} [A-Za-z]{2,}/);
+    if (!regexpName.test(name))
       this.showAlertName=true;
     else
       this.showAlertName=false;
 
     var email = e.target.elements[1].value;
-    var regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-    if (!regexp.test(email))
+    var regexpEmail = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    if (!regexpEmail.test(email))
       this.showAlertEmail=true;
     else
       this.showAlertEmail=false;
