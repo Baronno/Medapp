@@ -6,4 +6,3 @@ export class Patient {
   mobile: number;
   description: string;
 }
-
