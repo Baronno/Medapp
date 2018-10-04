@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+import { DoctorService } from '../doctor.service';
+import { Doctor } from '../doctor';
 
 @Component({
   selector: 'app-loginform',
@@ -9,9 +11,18 @@ import { AppComponent } from '../app.component';
 })
 export class LoginformComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  showAlert:boolean = false;
+
+  constructor(private router:Router,
+              private appComponent:AppComponent,    
+              private doctorService:DoctorService
+    ) { }
 
   ngOnInit() {
+  }
+
+  changeToRegister(){
+    this.appComponent.setRegistering(true);
   }
 
   loginUser(e){
@@ -19,11 +30,14 @@ export class LoginformComponent implements OnInit {
     console.log(e);
     var username = e.target.elements[0].value;
     var password = e.target.elements[1].value;
-
-    if(username == 'admin' && password == 'a') {
+        
+    if(this.doctorService.logIn(username, password)){ 
       this.router.navigate(['home']);
-      return true;
+      this.appComponent.setLoggedUser(true);
+      this.appComponent.setDoctor(username);
     }
-      
+    else{
+      this.showAlert = true;
+    }
   }
 }

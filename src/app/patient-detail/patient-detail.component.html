@@ -1,33 +1,37 @@
+<h1 style="margin-top: 25px; margin-bottom: 25px">My patients</h1>
+
 <div *ngIf="patient">
-  <h2>{{patient.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{patient.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="patient.name" placeholder="name"/>
-    </label>
-  </div>
-  <div>
-    <label>age:
-      <input [(ngModel)]="patient.age" placeholder="age"/>
-    </label>
-  </div>
-  <div>
-  <label>mobile:
-    <input [(ngModel)]="patient.mobile" placeholder="mobile"/>
-  </label>
-  </div>
-  <div>
-  <label>description:
 
-  <textarea [(ngModel)]="patient.description" placeholder="description" rows="10" cols="30">
-    </textarea>
+<h2 style="margin-top: 20px">{{patient.name}}'s Details</h2>
 
-  </label>
-  </div>
-
-  <button (click)="goBack()">go back</button>
-
-
+<div>
+  <table>
+    <tr>
+      <td style="width: 15%">id: </td>
+      <td>{{patient.id}}</td>
+    </tr>
+    <tr>
+      <td><label>name:</label></td>
+      <td><input [(ngModel)]="patient.name" placeholder="name"/></td>
+    </tr>
+    <tr>
+      <td><label>age:</label></td>
+      <td><input [(ngModel)]="patient.age" placeholder="age"/></td>
+    </tr>
+    <tr>
+      <td><label>mobile:</label></td>
+      <td><input [(ngModel)]="patient.mobile" placeholder="mobile"/></td>
+    </tr>
+    <tr>
+      <td><label>notes:</label></td>
+      <td><textarea [(ngModel)]="patient.description" placeholder="description" rows="10" cols="30">
+        </textarea></td>
+    </tr>
+  </table>
 </div>
+
+<button style="margin-bottom: 50px" (click)="goBack()">Back to list</button>
+<button (click)="sendReminder()">Send Reminder</button>
+
 
 

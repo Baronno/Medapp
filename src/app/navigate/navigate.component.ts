@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from '../doctor';
+import { AppComponent } from '../app.component';
+import { DoctorService } from '../doctor.service';
 
 @Component({
   selector: 'app-navigate',
@@ -7,14 +9,22 @@ import { Doctor } from '../doctor';
   styleUrls: ['./navigate.component.css']
 })
 export class NavigateComponent implements OnInit {
-doctor: Doctor = {
-  id: 101,
-  name: 'Dr. House',
-  phone: 1111212111,
-  specialty: 'Cadiogy'
-};
-  constructor() { }
 
+  constructor(
+    private appComponent: AppComponent,
+    private doctorService: DoctorService 
+  ) { }
+
+  doctor:Doctor = this.appComponent.doctor;
+  doctorOriginal:Doctor;
+  
   ngOnInit() {
   }
+
+  undoChanges() {    
+    console.log('doctor name'+this.doctor.name);
+    console.log('doctor saved name'+this.doctorOriginal.name);
+    this.doctor = this.doctorOriginal;
+  }
+
 }

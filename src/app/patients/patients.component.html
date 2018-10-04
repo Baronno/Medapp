@@ -1,10 +1,13 @@
-<h2>My patients</h2>
+<h1 style="margin-top: 25px; margin-bottom: 25px">My patients</h1>
+
   <ul class="patients">
+
     <li  *ngFor="let patient of patients">
     <a routerLink="/detail/{{patient.id}}">
       <span class="badge">{{patient.id}}</span> {{patient.name}}
       </a>
     </li>
+    
   </ul>
 
 
