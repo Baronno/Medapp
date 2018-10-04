@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Patient } from '../patient';
 import {PatientService} from '../patient.service';
 import { AppComponent } from '../app.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patients',
@@ -13,20 +14,25 @@ export class PatientsComponent implements OnInit {
   
   constructor(
     private patientService: PatientService,
-    private appComponent: AppComponent
+    private appComponent: AppComponent,
+    private router: Router
   ) {  }
 
   doctorId = this.appComponent.doctor.id;
-  searchString:string;
+  searchString:string = '';
 
   ngOnInit() {
     this.getPatients();
   }
 
   getPatients(): void {
-   this.patientService.getPatients(this.doctorId,this.searchString)
+   this.patientService.getPatients(this.doctorId, this.searchString)
      .subscribe(patients => this.patients = patients);
     }
+
+  addPatient() {
+    this.router.navigate(['addpatient']);
+  }
 
 }
 

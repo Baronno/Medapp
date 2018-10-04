@@ -6,6 +6,7 @@ import { NavigateComponent } from './navigate/navigate.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'login', component: LoginformComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'home', component: HomeComponent},
+  {path: 'addpatient', component: AddPatientComponent},
   {path: '', component: LoginformComponent},
 ]
 

@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginformComponent } from './loginform/loginform.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { RegisterComponent } from './register/register.component';
     NavigateComponent,
     LoginformComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddPatientComponent
   ],
   imports: [
     BrowserModule,

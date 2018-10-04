@@ -5,6 +5,17 @@ h1 {
   color: rgb(116,170,194);
   margin-bottom: 0;
 }
+input {
+  margin-top: 7px;
+}
+h3 {
+  font-family: "trebuchet MS";
+  margin-top: 6px;
+  text-align: center;
+  vertical-align: middle;
+  font-style: italic;
+  color: rgb(50, 161, 78);
+}
 h2 {
   font-family: "trebuchet MS";
   font-size: 2em;
@@ -35,7 +46,7 @@ h2 {
 
 .patients a {
   font-family: "trebuchet MS";
-  color: rgb(24, 134, 51);
+  color: rgb(50, 161, 78);
   text-decoration: none;
   position: relative;
   display: block;
@@ -61,4 +72,28 @@ h2 {
   text-align: right;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
+}
+
+input {
+  font-family: "trebuchet MS";
+  height: 1.6em;
+  font-size: 1em;
+  /*padding-left: .4em;*/
+}
+
+button {
+  font-family: "trebuchet MS";
+  background-color: #eee;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
 }

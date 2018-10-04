@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+import { Doctor } from '../doctor';
+import { DoctorService } from '../doctor.service';
 
 @Component({
   selector: 'app-register',
@@ -15,13 +17,15 @@ export class RegisterComponent implements OnInit {
   showAlertConfirm:boolean = false;
   showAlertPhone:boolean = false;
   showAlertSpecialty:boolean = false;
+  newDoctor:Doctor;
 
   constructor(
     private router:Router,
     private appComponent:AppComponent,
+    private doctorService:DoctorService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
   }
 
   registerDoctor(e){
@@ -69,6 +73,20 @@ export class RegisterComponent implements OnInit {
       this.showAlertSpecialty=false;
 
     if (!(this.showAlertConfirm || this.showAlertEmail || this.showAlertName || this.showAlertPassword || this.showAlertPhone || this.showAlertSpecialty)){
+      
+      console.log(name);
+      this.newDoctor.name = name;
+      console.log("name "+name);
+      this.newDoctor.email = email;
+      console.log("mail "+email);
+      this.newDoctor.password = password;
+      console.log("pass "+password);
+      this.newDoctor.phone = phone;
+      console.log("phone "+phone);
+      this.newDoctor.specialty = specialty;
+      console.log("spe "+specialty);
+      /*this.doctorService.registerDoctor(this.newDoctor1);*/
+      
       this.appComponent.setRegistering(false);
       this.router.navigate(['login']);
     }
