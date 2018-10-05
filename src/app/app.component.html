@@ -2,23 +2,27 @@
   <table style="width:100%">
     <tr>
       <th style="float: left"><h1>{{title}}</h1></th>
-      <th style="float: right"><h1>Welcome {{doctor}}</h1></th> 
+      <th style="float: right" *ngIf="_loggedUser"><h1>Welcome {{doctor.name}}</h1></th> 
     </tr>
   </table>
 </div>
 
-<div *ngIf="loggedUser">
+<div *ngIf="_loggedUser">
   <nav>
       <a routerLink = "/home">Home</a>
       <a routerLink = "/patients">Patients</a>
       <a routerLink = "/navigate">Settings</a>
-      <a style="float:right" routerLink = "/login">Log Out</a>
+      <a style="float:right" routerLink = "" (click)="setLoggedUser(false)">Log Out</a>
   </nav>
   <router-outlet></router-outlet>
 </div>
 
-<div *ngIf="!loggedUser">
+<div *ngIf="!_loggedUser && !_registering">
   <app-loginform></app-loginform>
+</div>
+
+<div *ngIf="!_loggedUser && _registering">
+  <app-register></app-register>
 </div>
 
 

@@ -1,7 +1,14 @@
+<h1>
+  Login
+</h1>
+
+<div *ngIf="showAlert" class="alert">
+  Invalid credentials
+</div>
 
 <form (submit)="loginUser($event)">
-  <div style="margin-top: 90px" class="input">
-    <label>Username</label>
+  <div class="input">
+    <label>E-mail</label>
     <input type="text">
   </div>
   <div class="input">
@@ -9,6 +16,9 @@
     <input type="password">
   </div>
   <div class="input">
-    <input type="submit" value="Login">
+    <input type="submit" value="Login"> 
+  </div>
+  <div class="input">
+      <a [routerLink]="['/register']" (click)="changeToRegister()">Register</a>      
   </div>
 </form>
