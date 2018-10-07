@@ -49,6 +49,15 @@ export class PatientService {
     return maxId+1;    
   }  
 
+  belongs(doctorId: number, patientId: number) {
+    if (PATIENTS.find(patient => patient.id === patientId && patient.doctorid === doctorId)) {
+      return true;
+    }
+    else 
+      return false;
+
+  }
+
 }
 
 

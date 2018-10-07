@@ -46,8 +46,8 @@ export class AddPatientComponent implements OnInit {
       this.showAlertEmail=false;
 
     var newAge = e.target.elements[2].value;
-    var regexpAge = new RegExp(/[0-9]{1,3}/);
-    if (!regexpAge.test(newAge) && newAge>120)
+    var regexpAge = new RegExp(/^(0?[1-9]|[1-9][0-9]|[1][0-2][0-9]|130)$/);
+    if (!regexpAge.test(newAge))
       this.showAlertAge=true;
     else
       this.showAlertAge=false;

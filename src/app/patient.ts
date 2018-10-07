@@ -3,7 +3,7 @@ export class Patient {
   doctorid: number;
   name: string;
   age: number;
-  mobile: number;
+  phone: string;
   description: string;
 }
 

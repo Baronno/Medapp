@@ -10,7 +10,7 @@ import { DoctorService } from './doctor.service';
 
 export class AppComponent {
   title = 'MedApp';
-  private _loggedUser: boolean = false;
+  private _loggedUser: boolean = true;
   private _registering: boolean = false;
 
   @Input() doctor: Doctor;
@@ -18,7 +18,7 @@ export class AppComponent {
   constructor (
     private doctorService:DoctorService
   ){}
-/* REMOVE!!!!! 
+/* REMOVE!!!!! */
   ngOnInit() {
     this.doctorService.getDoctor('a')
   .subscribe(doctor => this.doctor = doctor);

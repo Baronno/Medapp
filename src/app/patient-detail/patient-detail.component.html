@@ -1,38 +1,42 @@
 <h1 style="margin-top: 25px; margin-bottom: 25px">My patients</h1>
 
-<div *ngIf="patient">
-
-<h2 style="margin-top: 20px">{{patient.name}}'s Details</h2>
-
-<div>
-  <table>
-    <tr>
-      <td style="width: 15%">id: </td>
-      <td>{{patient.id}}</td>
-    </tr>
-    <tr>
-      <td><label>name:</label></td>
-      <td><input [(ngModel)]="patient.name" placeholder="name"/></td>
-    </tr>
-    <tr>
-      <td><label>age:</label></td>
-      <td><input [(ngModel)]="patient.age" placeholder="age"/></td>
-    </tr>
-    <tr>
-      <td><label>mobile:</label></td>
-      <td><input [(ngModel)]="patient.mobile" placeholder="mobile"/></td>
-    </tr>
-    <tr>
-      <td><label>notes:</label></td>
-      <td><textarea [(ngModel)]="patient.description" placeholder="description" rows="10" cols="30">
-        </textarea></td>
-    </tr>
-  </table>
+<div *ngIf="!showPatient" class="alert">
+  Patient not found
 </div>
 
+<div *ngIf="patient">
+
+  <h2 style="margin-top: 20px">{{patient.name}}'s Details</h2>
+
+  <div>
+    <table>
+      <tr>
+        <td style="width: 15%">id: </td>
+        <td>{{patient.id}}</td>
+      </tr>
+      <tr>
+        <td><label>name:</label></td>
+        <td><input [(ngModel)]="patient.name" placeholder="name"/></td>
+      </tr>
+      <tr>
+        <td><label>age:</label></td>
+        <td><input [(ngModel)]="patient.age" placeholder="age"/></td>
+      </tr>
+      <tr>
+        <td><label>mobile:</label></td>
+        <td><input [(ngModel)]="patient.phone" placeholder="phone"/></td>
+      </tr>
+      <tr>
+        <td><label>notes:</label></td>
+        <td><textarea [(ngModel)]="patient.description" placeholder="description" rows="10" cols="30">
+          </textarea></td>
+      </tr>
+    </table>
+  </div>
+</div>
 <button style="margin-bottom: 50px" (click)="goBack()">Back to list</button>
-<button (click)="sendReminder()">Send Reminder</button>
-<button (click)="removePatient(patient.id)">Remove Patient</button>
+<button (click)="sendReminder()" *ngIf="showPatient">Send Reminder</button>
+<button (click)="removePatient(patient.id)" *ngIf="showPatient">Remove Patient</button>
 
 
 

@@ -3,6 +3,7 @@ import { Patient} from '../patient';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { PatientService } from '../patient.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-patient-detail',
@@ -11,9 +12,11 @@ import { PatientService } from '../patient.service';
 })
 export class PatientDetailComponent implements OnInit {
  @Input() patient: Patient;
+ showPatient: boolean = true;
   constructor(
               private route: ActivatedRoute,
               private patientService: PatientService,
+              private appComponent:AppComponent,
               private location: Location) {
   }
 
@@ -22,8 +25,13 @@ export class PatientDetailComponent implements OnInit {
   }
   getPatient(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.patientService.getPatient(id)
-      .subscribe(patient => this.patient = patient);
+    if (this.patientService.belongs(this.appComponent.doctor.id, id)) {
+      this.patientService.getPatient(id)
+        .subscribe(patient => this.patient = patient);
+      this.showPatient = true;
+    } else {
+      this.showPatient = false;
+    }
   }
   removePatient(patient: Patient) {
     this.patientService.removePatient(patient);
