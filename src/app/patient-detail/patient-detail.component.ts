@@ -25,6 +25,10 @@ export class PatientDetailComponent implements OnInit {
     this.patientService.getPatient(id)
       .subscribe(patient => this.patient = patient);
   }
+  removePatient(patient: Patient) {
+    this.patientService.removePatient(patient);
+    this.goBack();
+  }
   goBack(): void {
     this.location.back();
   }

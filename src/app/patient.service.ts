@@ -19,10 +19,22 @@ export class PatientService {
     }
   }
 
- getPatient(id: number): Observable<Patient> {
-   return of(PATIENTS.find(patient => patient.id === id));
+  getPatient(id: number): Observable<Patient> {
+    return of(PATIENTS.find(patient => patient.id === id));
   }
 
+  removePatient(patient: Patient) {
+    var pos = -1;
+    for (var i = 0; i < PATIENTS.length; i++) {
+      if (PATIENTS[i]===patient)
+        pos = i;
+    }
+    PATIENTS.slice(0);
+  }
+
+  registerPatient(newPatient: Patient) {
+    PATIENTS.push(newPatient);
+  }
      
   
 

@@ -5,9 +5,5 @@
   name: string;
   phone: number;
   specialty: string;
-
-  setName(name:string) {
-    this.name = name;
-  }
 }
 
