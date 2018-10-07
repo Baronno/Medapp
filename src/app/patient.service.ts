@@ -30,7 +30,7 @@ export class PatientService {
         pos = i;
         console.log("position of patient is "+i);
     }
-    PATIENTS.slice(0);
+    PATIENTS.slice(0,1);
   }
 
   registerPatient(newPatient: Patient) {

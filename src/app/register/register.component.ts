@@ -77,7 +77,8 @@ export class RegisterComponent implements OnInit {
       
       var newId = this.doctorService.doctorNextId();
       this.newDoctor = Object.assign({id: newId, name: newName, email: newEmail, password: newPassword, phone: newPhone, specialty: newSpecialty});
-      this.doctorService.registerDoctor(this.newDoctor);  
+      this.doctorService.registerDoctor(this.newDoctor); 
+      window.confirm("Your details have been saved, "+this.newDoctor.name); 
       this.appComponent.setRegistering(false);
       this.router.navigate(['login']);
 

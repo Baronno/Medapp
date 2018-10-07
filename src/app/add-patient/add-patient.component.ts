@@ -63,7 +63,8 @@ export class AddPatientComponent implements OnInit {
 
       var patientId = this.patientService.patientNextId();
       this.newPatient = Object.assign({id: patientId, doctorid: this.appComponent.doctor.id, name: newName, age: newAge, phone: newPhone});
-      this.patientService.registerPatient(this.newPatient);        
+      this.patientService.registerPatient(this.newPatient);    
+      window.confirm("Patient "+this.newPatient.name+" has been saved.");     
       this.router.navigate(['patients']);
     }
   }
