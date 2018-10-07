@@ -8,14 +8,19 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root'
 })
 export class DoctorService {
-  constructor(
-  ) {}
+
+  constructor() {}
+
   getDoctors(): Observable<Doctor[]> {
     return of(DOCTORS);
   }
 
- getDoctor(email: string): Observable<Doctor> {
-   return of(DOCTORS.find(doctor => doctor.email === email));
+  getDoctor(email: string): Observable<Doctor> {
+    return of(DOCTORS.find(doctor => doctor.email === email));
+  }
+
+  registerDoctor(doctor: Doctor) {
+    DOCTORS.push(doctor);
   }
 
   logIn(email: string, password: string){
@@ -24,5 +29,17 @@ export class DoctorService {
     else
         return false;
   }
+
+  doctorNextId() {
+    var maxId = -1;
+    var maxIdIndex = -1;
+    for (var i = 0; i < DOCTORS.length; i++) {
+      if (DOCTORS[i].id > maxId) {
+        maxId = DOCTORS[i].id;
+        maxIdIndex = i;
+      }
+    }
+    return maxId+1;    
+  }  
 }
 

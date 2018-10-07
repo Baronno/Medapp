@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 
 import { Patient} from '../patient';
 import { PatientService } from '../patient.service';
+import { AppComponent } from '../app.component';
 
 import {Observable, of} from 'rxjs';
 
@@ -22,10 +23,11 @@ import { AppComponent } from '../app.component';
 
 export class PatientDetailComponent implements OnInit {
  @Input() patient: Patient;
+ showPatient: boolean = true;
   constructor(
               private http: HttpClient,
               private route: ActivatedRoute,
-              //private patientService: PatientService,
+              private appComponent:AppComponent,
               private location: Location) {
   }
 
@@ -39,16 +41,28 @@ export class PatientDetailComponent implements OnInit {
     .get<{message: string, patients: Patient}>('http://localhost:3000/api/patient/' + id)
     .subscribe((patientData) => {
       this.patient = patientData.patients;
-      console.log(this.patient);
     });
 
     /*const id = +this.route.snapshot.paramMap.get('id');
     this.patientService.getPatient(id)
       .subscribe(patient => this.patient = patient);*/
 
+// TO DO
   /*goBack(): void {
-    this.location.back();
+    if (this.patientService.belongs(this.appComponent.doctor.id, id)) {
+      this.patientService.getPatient(id)
+        .subscribe(patient => this.patient = patient);
+      this.showPatient = true;
+    } else {
+      this.showPatient = false;
+    }
+  }
+
+  removePatient(patient: Patient) {
+    this.patientService.removePatient(patient);
+    this.goBack();
   }*/
+
   /*sendReminder(){
 
                 /*var nodemailer = require('nodemailer');

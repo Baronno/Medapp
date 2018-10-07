@@ -2,7 +2,7 @@
   <table style="width:100%">
     <tr>
       <th style="float: left"><h1>{{title}}</h1></th>
-      <th style="float: right" *ngIf="_loggedUser"><h1>Welcome {{doctor.name}}</h1></th> 
+      <th style="float: right" *ngIf="_loggedUser"><h1>Welcome Dr. {{doctor.name}}</h1></th> 
     </tr>
   </table>
 </div>
@@ -14,7 +14,12 @@
       <a routerLink = "/navigate">Settings</a>
       <a style="float:right" routerLink = "" (click)="setLoggedUser(false)">Log Out</a>
   </nav>
-  <router-outlet></router-outlet>
+  <table style="width:100%; height: 100%">
+    <td style="width:15%; /*background-color: #679ab675*/"></td>
+    <td><router-outlet></router-outlet></td>
+    <td style="width:15%; /*background-color: #679ab675*/"></td>
+  </table>
+  
 </div>
 
 <div *ngIf="!_loggedUser && !_registering">

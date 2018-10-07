@@ -5,7 +5,7 @@ var patientSchema = new mongoose.Schema({
   doctorid : Number,
   name : String,
   age : Number,
-  mobile : Number,
+  phone : String,
   description : String
 });
 

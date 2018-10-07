@@ -7,6 +7,7 @@ import {PatientService} from '../patient.service';
 import {Observable, of} from 'rxjs';
 
 import { AppComponent } from '../app.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patients',
@@ -19,16 +20,12 @@ import { AppComponent } from '../app.component';
 })
 
 export class PatientsComponent implements OnInit {
-  patients: Patient[];
 
   constructor(
     private http: HttpClient,
-    /*private patientService: PatientService,*/
-    private appComponent: AppComponent
-  ) { }
-
-  doctorId = this.appComponent.doctor.id;
-  searchString:string;
+    private appComponent: AppComponent,
+    private router: Router
+  ) {  }
 
   ngOnInit() {
     this.getPatients();
@@ -36,15 +33,14 @@ export class PatientsComponent implements OnInit {
 
   getPatients(): void {
     this.http
-    .get<{message: string, patients: Patient[]}>('http://localhost:3000/api/patient')
+    .get<{message: string, patients: Patient[]}>('http://localhost:3000/api/patients/' + this.appComponent.doctor.id)
     .subscribe((patientData) => {
       this.patients = patientData.patients;
       console.log(this.patients);
     });
   }
-
-  /*getPatients(): void {
-   this.patientService.getPatients()
-     //.subscribe(patients => this.patients = patients);
-   }*/
+  
+  addPatient() {
+    this.router.navigate(['addpatient']);
+  }
 }

@@ -1,0 +1,47 @@
+<h1>
+  New Patient
+</h1>
+
+<form (submit)="registerPatient($event)">
+
+  <div class="input">
+    <label>Name</label>
+    <input type="text">
+  </div>
+  <div *ngIf="showAlertName" class="alert">
+      Enter patient's name
+  </div>
+
+  <div class="input">
+    <label>E-mail</label>
+    <input type="text">
+  </div>
+  <div *ngIf="showAlertEmail" class="alert">
+      Enter a valid e-mail
+  </div>
+
+  <div class="input">
+    <label>Age</label>
+    <input type="text">
+  </div>
+  <div *ngIf="showAlertAge" class="alert">
+      Enter patient's age
+  </div>
+
+  <div class="input">
+    <label>Phone</label>
+    <input type="text">
+  </div>
+  <div *ngIf="showAlertPhone" class="alert">
+      Enter patient's phone
+  </div>
+
+  <div class="input">
+    <input type="submit" value="Save patient"> 
+  </div>
+
+  <div class="input" style="margin-bottom: 35px">
+      <a [routerLink]="['/patients']" (click)="goBack()">Cancel</a>      
+  </div>
+  
+</form>

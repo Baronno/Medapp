@@ -7,23 +7,25 @@ import { AppComponent } from './app.component';
 import { PatientsComponent } from './patients/patients.component';
 import { PatientDetailComponent } from './patient-detail/patient-detail.component';
 
-import { PatientSearchComponent } from './patient-search/patient-search.component';
 import { NavigateComponent } from './navigate/navigate.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginformComponent } from './loginform/loginform.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
+import { AddPatientComponent } from './add-patient/add-patient.component';
+
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     PatientsComponent,
     PatientDetailComponent,
-    PatientSearchComponent,
     NavigateComponent,
     LoginformComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddPatientComponent
   ],
   imports: [
     BrowserModule,

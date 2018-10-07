@@ -29,9 +29,10 @@ button {
   font-family: "trebuchet MS";
   background-color: #eee;
   border: none;
-  padding: 5px 10px;
+  padding: 8px 12px;
   border-radius: 4px;
   cursor: pointer;
+  margin-right: 10px;
 }
 button:hover {
   background-color: #cfd8dc;
@@ -84,3 +85,13 @@ nav a:hover {
   background-color: #cfd8dc;
 }
 
+.alert {
+  font-style: italic;
+  text-align: left;
+  font-size: 0.7em;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  font-family: "trebuchet MS";
+  padding: 5px;
+  color: #f53d3dc7;
+}

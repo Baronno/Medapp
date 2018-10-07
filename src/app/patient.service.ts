@@ -14,10 +14,9 @@ export class PatientService {
   ) {}
 
   getPatients(doctorId: number, searchString: string): Observable<Patient[]> {
-    if(searchString=='')
+    if(searchString=='') {
       return of(PATIENTS.filter(patient => patient.doctorid === doctorId));
-    else
-      return of(PATIENTS.filter(patient => patient.doctorid === doctorId));
+/*<<<<<<< HEAD
 
   private patients: Patient[];
   //private patientsUpdated = new Subject<Patient[]>();
@@ -26,10 +25,16 @@ export class PatientService {
 
   /*getPatients(): Observable<Patient[]> {
     return of(PATIENTS);
+=======
+    } else {
+      return of(PATIENTS.filter(patient => patient.doctorid === doctorId && patient.name.toLowerCase().includes(searchString.toLocaleLowerCase())));
+    }
+>>>>>>> LogIn
   }
 
   getPatient(id: number): Observable<Patient> {
     return of(PATIENTS.find(patient => patient.id === id));
+<<<<<<< HEAD
   }*/
 
   /*getPatients(): Observable<Patient[]> {
@@ -54,6 +59,44 @@ export class PatientService {
   }
 
 <<<<<<< HEAD
+=======
+  }
+
+  removePatient(patient: Patient) {
+    var pos = -1;
+    for (var i = 0; i < PATIENTS.length; i++) {
+      if (PATIENTS[i].id===patient.id)
+        pos = i;
+        console.log("position of patient is "+i);
+    }
+    PATIENTS.slice(0,1);
+  }
+
+  registerPatient(newPatient: Patient) {
+    PATIENTS.push(newPatient);
+  }
+
+  patientNextId() {
+    var maxId = -1;
+    var maxIdIndex = -1;
+    for (var i = 0; i < PATIENTS.length; i++) {
+      if (PATIENTS[i].id > maxId) {
+        maxId = PATIENTS[i].id;
+        maxIdIndex = i;
+      }
+    }
+    return maxId+1;
+  }
+
+  belongs(doctorId: number, patientId: number) {
+    if (PATIENTS.find(patient => patient.id === patientId && patient.doctorid === doctorId)) {
+      return true;
+    }
+    else
+      return false;
+
+  }
+>>>>>>> LogIn
 
 
 =======*/

@@ -3,7 +3,7 @@
   email: string;
   password: string;
   name: string;
-  phone: number;
+  phone: string;
   specialty: string;
 }
 
