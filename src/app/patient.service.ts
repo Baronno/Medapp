@@ -26,8 +26,9 @@ export class PatientService {
   removePatient(patient: Patient) {
     var pos = -1;
     for (var i = 0; i < PATIENTS.length; i++) {
-      if (PATIENTS[i]===patient)
+      if (PATIENTS[i].id===patient.id)
         pos = i;
+        console.log("position of patient is "+i);
     }
     PATIENTS.slice(0);
   }
@@ -36,7 +37,17 @@ export class PatientService {
     PATIENTS.push(newPatient);
   }
      
-  
+  patientNextId() {
+    var maxId = -1;
+    var maxIdIndex = -1;
+    for (var i = 0; i < PATIENTS.length; i++) {
+      if (PATIENTS[i].id > maxId) {
+        maxId = PATIENTS[i].id;
+        maxIdIndex = i;
+      }
+    }
+    return maxId+1;    
+  }  
 
 }
 

@@ -29,5 +29,17 @@ export class DoctorService {
     else
         return false;
   }
+
+  doctorNextId() {
+    var maxId = -1;
+    var maxIdIndex = -1;
+    for (var i = 0; i < DOCTORS.length; i++) {
+      if (DOCTORS[i].id > maxId) {
+        maxId = DOCTORS[i].id;
+        maxIdIndex = i;
+      }
+    }
+    return maxId+1;    
+  }  
 }
 

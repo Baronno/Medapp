@@ -61,7 +61,8 @@ export class AddPatientComponent implements OnInit {
 
     if (!(this.showAlertAge || this.showAlertEmail || this.showAlertName || this.showAlertPhone )) {
 
-      this.newPatient = Object.assign({doctorid: this.appComponent.doctor.id, name: newName, age: newAge, phone: newPhone});
+      var patientId = this.patientService.patientNextId();
+      this.newPatient = Object.assign({id: patientId, doctorid: this.appComponent.doctor.id, name: newName, age: newAge, phone: newPhone});
       this.patientService.registerPatient(this.newPatient);        
       this.router.navigate(['patients']);
     }

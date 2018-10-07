@@ -75,11 +75,12 @@ export class RegisterComponent implements OnInit {
 
     if (!(this.showAlertConfirm || this.showAlertEmail || this.showAlertName || this.showAlertPassword || this.showAlertPhone || this.showAlertSpecialty)){
       
-      this.newDoctor = Object.assign({name: newName, email: newEmail, password: newPassword, phone: newPhone, specialty: newSpecialty});
+      var newId = this.doctorService.doctorNextId();
+      this.newDoctor = Object.assign({id: newId, name: newName, email: newEmail, password: newPassword, phone: newPhone, specialty: newSpecialty});
       this.doctorService.registerDoctor(this.newDoctor);  
       this.appComponent.setRegistering(false);
       this.router.navigate(['login']);
-      
+
     }
  }
 
