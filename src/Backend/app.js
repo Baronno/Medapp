@@ -56,7 +56,6 @@ app.get("/api/patient", (req, res, next) => {
 });
 
 app.get("/api/patient/:id", (req, res, next) => {
-  console.log(req.id);
   const id = parseInt(req.params.id,10)
   Patient.findOne({id: id}).then(documents => {
     console.log(documents);

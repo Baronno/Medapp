@@ -10,7 +10,6 @@ import {Observable, of} from 'rxjs';
   providedIn: 'root'
 })
 export class PatientService {
-<<<<<<< HEAD
   constructor(
   ) {}
 
@@ -19,7 +18,7 @@ export class PatientService {
       return of(PATIENTS.filter(patient => patient.doctorid === doctorId));
     else
       return of(PATIENTS.filter(patient => patient.doctorid === doctorId));
-=======
+
   private patients: Patient[];
   //private patientsUpdated = new Subject<Patient[]>();
 
