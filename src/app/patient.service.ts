@@ -13,10 +13,8 @@ export class PatientService {
 
   getPatients(doctorId: number, searchString: string): Observable<Patient[]> {
     if(searchString=='') {
-      console.log("in option 1 "+searchString);
       return of(PATIENTS.filter(patient => patient.doctorid === doctorId));
     } else {
-      console.log("in option 2 "+searchString);
       return of(PATIENTS.filter(patient => patient.doctorid === doctorId && patient.name.toLowerCase().includes(searchString.toLocaleLowerCase())));
     }
   }

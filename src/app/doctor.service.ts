@@ -19,9 +19,9 @@ export class DoctorService {
     return of(DOCTORS.find(doctor => doctor.email === email));
   }
 
-  /*registerDoctor(doctor: Doctor) {
+  registerDoctor(doctor: Doctor) {
     DOCTORS.push(doctor);
-  }*/
+  }
 
   logIn(email: string, password: string){
     if (DOCTORS.find(doctor => doctor.email === email && doctor.password === password))
