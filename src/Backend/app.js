@@ -33,14 +33,16 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/patient", (req, res, next) => {
+  console.log("it works");
   const patient = new Patient({
     id : req.body.id,
     doctorid : req.body.doctorid,
     name : req.body.name,
     age : req.body.age,
     phone : req.body.phone,
-    description : req.body.description
+    description : '' //req.body.description
   });
+  console.log("it works");
   res.status(201).json({
     message: 'Patient added successfully'
   });
@@ -58,7 +60,6 @@ app.get("/api/patients", (req, res, next) => {
 app.get("/api/patient/:id", (req, res, next) => {
   const id = parseInt(req.params.id,10)
   Patient.findOne({id: id}).then(documents => {
-    console.log(documents);
     res.status(200).json({
       message: 'succes',
       patients: documents
@@ -69,10 +70,18 @@ app.get("/api/patient/:id", (req, res, next) => {
 app.get("/api/patients/:doctorid", (req, res, next) => {
   const doctorid = parseInt(req.params.doctorid,10)
   Patient.find({doctorid: doctorid}).then(documents => {
-    console.log(documents);
     res.status(200).json({
       message: 'succes',
       patients: documents
+    });
+  });
+});
+
+app.get("/api/maxid", (req, res, next) => {
+  Patient.findOne().sort('-id').then(documents => {
+    res.status(200).json({
+      message: 'succes',
+      id: documents.id
     });
   });
 });

@@ -9,8 +9,6 @@ import { AppComponent } from '../app.component';
 
 import {Observable, of} from 'rxjs';
 
-import { AppComponent } from '../app.component';
-
 @Component({
   selector: 'app-patient-detail',
   templateUrl: './patient-detail.component.html',

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { Location } from '@angular/common';
-import { Patient } from '../patient';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
+import { Patient } from '../patient';
+
 import { PatientService } from '../patient.service';
 import { AppComponent } from '../app.component';
 
@@ -10,7 +13,13 @@ import { AppComponent } from '../app.component';
   templateUrl: './add-patient.component.html',
   styleUrls: ['./add-patient.component.css']
 })
-export class AddPatientComponent implements OnInit { 
+
+@Injectable({
+  providedIn: 'root'
+})
+
+export class AddPatientComponent implements OnInit {
+  @Input() patient: Patient;
 
   showAlertName:boolean = false;
   showAlertEmail:boolean = false;
@@ -21,15 +30,16 @@ export class AddPatientComponent implements OnInit {
   constructor(
     private location:Location,
     private router:Router,
-    private patientService:PatientService,
-    private appComponent:AppComponent
+    private appComponent:AppComponent,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
   }
 
   registerPatient(e) {
-    
+    this.patient.name = '';
+
     e.preventDefault();
     var newName = e.target.elements[0].value;
     var regexpName = new RegExp(/^[A-Za-z]{2,} [A-Za-z]{2,}/);
@@ -60,16 +70,20 @@ export class AddPatientComponent implements OnInit {
       this.showAlertPhone=false;
 
     if (!(this.showAlertAge || this.showAlertEmail || this.showAlertName || this.showAlertPhone )) {
-
-      var patientId = this.patientService.patientNextId();
-      this.newPatient = Object.assign({id: patientId, doctorid: this.appComponent.doctor.id, name: newName, age: newAge, phone: newPhone});
-      this.patientService.registerPatient(this.newPatient);    
-      window.confirm("Patient "+this.newPatient.name+" has been saved.");     
+      var response = this.http.get<{message: string, patient: Patient}>("http://localhost:3000/api/maxid")
+      this.patient.id = response.patient.id + 1;
+      this.patient.doctorid = this.appComponent.doctor.id;
+      this.patient.name = newName;
+      this.patient.age = newAge;
+      this.patient.phone = newPhone;
+      this.patient.description = '';
+      window.confirm("Patient "+this.patient.name+" has been saved.");
+      this.http.post<{}>("http://localhost:3000/api/patient", this.patient);
       this.router.navigate(['patients']);
     }
   }
 
-  goBack(): void {
+  /*goBack(): void {
     this.location.back();
-  }
+  }*/
 }

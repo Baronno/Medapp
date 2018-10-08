@@ -1,5 +1,6 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { Patient } from '../patient';
 import {PatientService} from '../patient.service';
@@ -7,7 +8,6 @@ import {PatientService} from '../patient.service';
 import {Observable, of} from 'rxjs';
 
 import { AppComponent } from '../app.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-patients',
@@ -20,6 +20,7 @@ import { Router } from '@angular/router';
 })
 
 export class PatientsComponent implements OnInit {
+ @Input() patients: Patient[];
 
   constructor(
     private http: HttpClient,
@@ -39,7 +40,7 @@ export class PatientsComponent implements OnInit {
       console.log(this.patients);
     });
   }
-  
+
   addPatient() {
     this.router.navigate(['addpatient']);
   }

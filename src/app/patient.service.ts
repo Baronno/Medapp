@@ -15,7 +15,7 @@ export class PatientService {
 
   getPatients(doctorId: number, searchString: string): Observable<Patient[]> {
     if(searchString=='') {
-      return of(PATIENTS.filter(patient => patient.doctorid === doctorId));
+      return of(PATIENTS.filter(patient => patient.doctorid === doctorId));}}
 /*<<<<<<< HEAD
 
   private patients: Patient[];
