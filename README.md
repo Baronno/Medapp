@@ -2,7 +2,7 @@ Medapp
 The purpose is to manage the patient information. 
 It can edit,add and delete patient infromation. And it can edit the doctor's information as well.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.3.
-We are going to use Mysql to edit the database.
+We are going to use Mysql to edit the database.11
 
 Components
 Patients
