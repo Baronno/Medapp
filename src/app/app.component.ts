@@ -10,21 +10,21 @@ import { DoctorService } from './doctor.service';
 
 export class AppComponent {
   title = 'MedApp';
-  private _loggedUser: boolean = false;
+  private _loggedUser: boolean = true;
   private _registering: boolean = false;
 
   @Input() doctor: Doctor;
-  
+
   constructor (
     private doctorService:DoctorService
   ){}
-/* REMOVE!!!!! 
+/* REMOVE!!!!!*/
   ngOnInit() {
     this.doctorService.getDoctor('a')
   .subscribe(doctor => this.doctor = doctor);
   }
    /*REMOVE!!!!! */
-  
+
   public setRegistering(data:boolean)  {
     this._registering = data;
   }
@@ -37,6 +37,5 @@ export class AppComponent {
     this.doctorService.getDoctor(data)
     .subscribe(doctor => this.doctor = doctor);
   }
-  
-}
 
+}

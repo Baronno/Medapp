@@ -78,10 +78,10 @@ app.get("/api/patients/:doctorid", (req, res, next) => {
 });
 
 app.get("/api/maxid", (req, res, next) => {
-  Patient.findOne().sort('-id').then(documents => {
+  Patient.findOne().sort({id:-1}).then(documents => {
     res.status(200).json({
       message: 'succes',
-      id: documents.id
+      patient: documents
     });
   });
 });

@@ -38,7 +38,6 @@ export class AddPatientComponent implements OnInit {
   }
 
   registerPatient(e) {
-    this.patient.name = '';
 
     e.preventDefault();
     var newName = e.target.elements[0].value;
@@ -70,20 +69,21 @@ export class AddPatientComponent implements OnInit {
       this.showAlertPhone=false;
 
     if (!(this.showAlertAge || this.showAlertEmail || this.showAlertName || this.showAlertPhone )) {
-      var response = this.http.get<{message: string, patient: Patient}>("http://localhost:3000/api/maxid")
-      this.patient.id = response.patient.id + 1;
-      this.patient.doctorid = this.appComponent.doctor.id;
-      this.patient.name = newName;
-      this.patient.age = newAge;
-      this.patient.phone = newPhone;
-      this.patient.description = '';
-      window.confirm("Patient "+this.patient.name+" has been saved.");
-      this.http.post<{}>("http://localhost:3000/api/patient", this.patient);
-      this.router.navigate(['patients']);
+      this.http.get<{message: string, patient: Patient}>("http://localhost:3000/api/maxid")
+      .subscribe((patientData) => {
+        this.patient = patientData.patient;
+        var newId = this.patient.id + 1;
+        console.log(newId);
+        this.patient = { id: newId, doctorid: this.appComponent.doctor.id, name: newName, age: newAge, phone: newPhone, description: ''};
+        this.http.post<{message: string, patients: Patient}>("http://localhost:3000/api/patient", this.patient);
+      })
+      //window.confirm("Patient "+this.patient.name+" has been saved.");
+      //this.http.post<{}>("http://localhost:3000/api/patient", this.patient);
+      //this.router.navigate(['patients']);
     }
   }
 
-  /*goBack(): void {
+  goBack(): void {
     this.location.back();
-  }*/
+  }
 }
