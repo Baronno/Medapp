@@ -21,7 +21,7 @@ import {Observable, of} from 'rxjs';
 
 export class PatientDetailComponent implements OnInit {
  @Input() patient: Patient;
- showPatient: boolean = true;
+
   constructor(
               private http: HttpClient,
               private route: ActivatedRoute,

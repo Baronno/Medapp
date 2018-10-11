@@ -20,8 +20,10 @@ export class AppComponent {
   ){}
 /* REMOVE!!!!!*/
   ngOnInit() {
+    this.doctor = this.doctorService.getDoctor2("a");
+    /*
     this.doctorService.getDoctor('a')
-  .subscribe(doctor => this.doctor = doctor);
+  .subscribe(doctor => this.doctor = doctor);*/
   }
    /*REMOVE!!!!! */
 

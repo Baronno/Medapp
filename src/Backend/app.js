@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 var Patient = require('./patient');
+var Doctor = require('./doctor');
 
 const app = express();
 
@@ -45,6 +46,23 @@ app.post("/api/patient", (req, res, next) => {
     res.status(201).json({
       message: 'Patient added successfully',
       patientId: createdPatient._id
+    });
+  });
+});
+
+app.post("/api/doctor", (req, res, next) => {
+  const doctor = new Datient({
+    id : req.body.id,
+    doctorid : req.body.doctorid,
+    name : req.body.name,
+    age : req.body.age,
+    phone : req.body.phone,
+    description : 'new doctor'
+  });
+  patient.save().then(createdDoctor => {
+    res.status(201).json({
+      message: 'Doctor added successfully',
+      datientId: createdDoctor._id
     });
   });
 });
@@ -106,6 +124,18 @@ app.put("/api/patient/:id", (req, res, next) => {
 app.delete("/api/patient/:id", (req, res, next) => {
   const id = parseInt(req.params.id,10)
   Patient.findOne({id: id}).remove().exec();
+});
+
+app.get("/api/doctors/:email", (req, res, next) => {
+  const email = req.params.email;
+  console.log(req.params.email);
+  Doctor.findOne({email: email}).then(documents => {
+    res.status(200).json({
+      message: 'successful!!!',
+      doctorResult: documents,
+    });   
+    console.log(documents);
+  });
 });
 
 module.exports = app;
