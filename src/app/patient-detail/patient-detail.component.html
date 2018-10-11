@@ -16,19 +16,19 @@
       </tr>
       <tr>
         <td><label>name:</label></td>
-        <td><input [(ngModel)]="patient.name" placeholder="name"/></td>
+        <td><input value="{{patient.name}}" placeholder="{{patient.name}}"/></td>
       </tr>
       <tr>
         <td><label>age:</label></td>
-        <td><input [(ngModel)]="patient.age" placeholder="age"/></td>
+        <td><input value="{{patient.age}}" placeholder="{{patient.age}}"/></td>
       </tr>
       <tr>
         <td><label>mobile:</label></td>
-        <td><input [(ngModel)]="patient.phone" placeholder="phone"/></td>
+        <td><input value="{{patient.phone}}" placeholder="{{patient.phone}}"/></td>
       </tr>
       <tr>
         <td><label>notes:</label></td>
-        <td><textarea [(ngModel)]="patient.description" placeholder="description" rows="10" cols="30">
+        <td><textarea placeholder="Enter details" rows="10" cols="30">{{patient.description}}
           </textarea></td>
       </tr>
     </table>

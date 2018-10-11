@@ -31,12 +31,13 @@ export class PatientsComponent implements OnInit {
   ngOnInit() {
     this.getPatients();
   }
+  searchString:string = '';
 
   getPatients(): void {
     this.http
     .get<{message: string, patients: Patient[]}>('http://localhost:3000/api/patients/' + this.appComponent.doctor.id)
     .subscribe((patientData) => {
-      this.patients = patientData.patients;
+      this.patients = patientData.patients.filter(patient => patient.name.toLowerCase().includes(this.searchString.toLocaleLowerCase()));
     });
   }
 

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { Doctor } from '../doctor';
@@ -13,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   showAlertName:boolean = false;
   showAlertEmail:boolean = false;
+  showAlertEmailExists:boolean = false;
   showAlertPassword:boolean = false;
   showAlertConfirm:boolean = false;
   showAlertPhone:boolean = false;
@@ -20,6 +22,7 @@ export class RegisterComponent implements OnInit {
   newDoctor:Doctor;
 
   constructor(
+    private http: HttpClient,
     private router:Router,
     private appComponent:AppComponent,
     private doctorService:DoctorService
@@ -46,6 +49,10 @@ export class RegisterComponent implements OnInit {
       this.showAlertEmail=true;
     else
       this.showAlertEmail=false;
+    if (this.emailExists)
+      this.showAlertEmailExists=true;
+    else
+      this.showAlertEmailExists=false;
 
     var newPassword = e.target.elements[2].value;
     var regexpPass = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
@@ -73,7 +80,7 @@ export class RegisterComponent implements OnInit {
     else
       this.showAlertSpecialty=false;
 
-    if (!(this.showAlertConfirm || this.showAlertEmail || this.showAlertName || this.showAlertPassword || this.showAlertPhone || this.showAlertSpecialty)){
+    if (!(this.showAlertConfirm || this.showAlertEmail || this.showAlertEmailExists || this.showAlertName || this.showAlertPassword || this.showAlertPhone || this.showAlertSpecialty)){
       
       var newId = this.doctorService.doctorNextId();
       this.newDoctor = Object.assign({id: newId, name: newName, email: newEmail, password: newPassword, phone: newPhone, specialty: newSpecialty});
@@ -83,7 +90,12 @@ export class RegisterComponent implements OnInit {
       this.router.navigate(['login']);
 
     }
- }
+  }
+
+  // we need to implement this on database, just search if the email provided exists and return true if it does
+  emailExists(email:string): Boolean {
+    return false;
+  }
 
   changeToLogin(){
     this.appComponent.setRegistering(false);
