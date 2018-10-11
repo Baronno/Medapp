@@ -75,7 +75,8 @@ export class AddPatientComponent implements OnInit {
         var newId = this.patient.id + 1;
         console.log(newId);
         this.patient = { id: newId, doctorid: this.appComponent.doctor.id, name: newName, age: newAge, phone: newPhone, description: ''};
-        this.http.post<{message: string, patients: Patient}>("http://localhost:3000/api/patient", this.patient);
+        this.http.post<{message: string, patients: Patient}>("http://localhost:3000/api/patient", this.patient)
+        .subscribe();
       })
       //window.confirm("Patient "+this.patient.name+" has been saved.");
       //this.http.post<{}>("http://localhost:3000/api/patient", this.patient);
