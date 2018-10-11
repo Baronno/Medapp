@@ -10,5 +10,7 @@ Mongodb--database
 node.js   
 express   
 
-Test:  running `ng test` to do the unit test via Karma
+Test:
+We are going to use the Jazime with the Karma to do the unit test.
+running `ng test` to do the unit test via Karma
 
