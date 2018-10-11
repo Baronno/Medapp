@@ -74,10 +74,13 @@ export class AddPatientComponent implements OnInit {
         this.patient = patientData.patient;
         var newId = this.patient.id + 1;
         this.patient = { id: newId, doctorid: this.appComponent.doctor.id, name: newName, age: newAge, phone: newPhone, description: ''};
-        this.http.post<{message: string, patients: Patient}>("http://localhost:3000/api/patient", this.patient)
-        .subscribe();
-      })
-      this.goBack();
+      
+      
+      if (this.http.post<{message: string, patients: Patient}>("http://localhost:3000/api/patient", this.patient)
+      .subscribe()) {
+        this.goBack();
+      }    
+    })
     }
   }
 

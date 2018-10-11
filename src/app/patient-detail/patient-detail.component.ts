@@ -41,47 +41,18 @@ export class PatientDetailComponent implements OnInit {
       this.patient = patientData.patients;
     })};
 
-    /*const id = +this.route.snapshot.paramMap.get('id');
-    this.patientService.getPatient(id)
-      .subscribe(patient => this.patient = patient);*/
-
-// TO DO
   goBack(): void {
     this.location.back();
-    /*this.http.put<{message: string, patients: Patient}>('http://localhost:3000/api/patient/' + this.patient.id, this.patient)
-    .subscribe();*/
   };
 
   removePatient(): void {
-    this.http.delete<{message: string, patients: Patient}>('http://localhost:3000/api/patient/' + this.patient.id)
-    .subscribe();
-    this.goBack();
+    var txt;
+    var r = confirm("Are you sure you want to remove patient "+this.patient.name+"?");
+    if (r) {
+      if(this.http.delete<{message: string, patients: Patient}>('http://localhost:3000/api/patient/' + this.patient.id)
+      .subscribe()) {
+        this.goBack();
+      }
+    }
   };
-
-  /*sendReminder(){
-
-                /*var nodemailer = require('nodemailer');
-               /* let transporter = nodemailer.createTransport({
-                  service:'gmail',
-                  port: 25,
-                  secure: false,
-                  auth:{
-                    user: 'medappservice@gmail.com',
-                    pass: 'utsaip2018'
-                  }
-                })
-                let mailOptions = {
-                  from: '"Medappservice" <medappservice@gmail.com>',
-                  to: 'huerta.fhm@gmail.com',
-                  subject: 'Appointment reminding!',
-                  text: 'This is Medapp. Our doctor is looking forward to meeting you tomorrow!'
-                };
-                transporter.sendMail(mailOptions,(error,info) => {
-                  if(error){
-                    return console.log(error);
-                  }
-                  console.log("The message was sent!");
-                  console.log(info);
-                });
-  }*/
 }
