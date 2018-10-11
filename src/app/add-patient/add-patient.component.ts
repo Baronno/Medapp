@@ -77,6 +77,7 @@ export class AddPatientComponent implements OnInit {
         this.http.post<{message: string, patients: Patient}>("http://localhost:3000/api/patient", this.patient)
         .subscribe();
       })
+      this.goBack();
     }
   }
 

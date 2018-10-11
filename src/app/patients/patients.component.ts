@@ -37,7 +37,6 @@ export class PatientsComponent implements OnInit {
     .get<{message: string, patients: Patient[]}>('http://localhost:3000/api/patients/' + this.appComponent.doctor.id)
     .subscribe((patientData) => {
       this.patients = patientData.patients;
-      console.log(this.patients);
     });
   }
 

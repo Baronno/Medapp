@@ -39,27 +39,24 @@ export class PatientDetailComponent implements OnInit {
     .get<{message: string, patients: Patient}>('http://localhost:3000/api/patient/' + id)
     .subscribe((patientData) => {
       this.patient = patientData.patients;
-    });
+    })};
 
     /*const id = +this.route.snapshot.paramMap.get('id');
     this.patientService.getPatient(id)
       .subscribe(patient => this.patient = patient);*/
 
 // TO DO
-  /*goBack(): void {
-    if (this.patientService.belongs(this.appComponent.doctor.id, id)) {
-      this.patientService.getPatient(id)
-        .subscribe(patient => this.patient = patient);
-      this.showPatient = true;
-    } else {
-      this.showPatient = false;
-    }
-  }
+  goBack(): void {
+    this.location.back();
+    /*this.http.put<{message: string, patients: Patient}>('http://localhost:3000/api/patient/' + this.patient.id, this.patient)
+    .subscribe();*/
+  };
 
-  removePatient(patient: Patient) {
-    this.patientService.removePatient(patient);
+  removePatient(): void {
+    this.http.delete<{message: string, patients: Patient}>('http://localhost:3000/api/patient/' + this.patient.id)
+    .subscribe();
     this.goBack();
-  }*/
+  };
 
   /*sendReminder(){
 
@@ -85,6 +82,6 @@ export class PatientDetailComponent implements OnInit {
                   }
                   console.log("The message was sent!");
                   console.log(info);
-                });*/
-  }
+                });
+  }*/
 }

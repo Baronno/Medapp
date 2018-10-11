@@ -27,7 +27,7 @@ app.use((req, res, next) => {
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
-    "GET, POST, PATCH, DELETE, OPTIONS"
+    "GET, POST, PUT, DELETE, OPTIONS"
   );
   next();
 });
@@ -85,6 +85,27 @@ app.get("/api/maxid", (req, res, next) => {
       patient: documents
     });
   });
+});
+
+app.put("/api/patient/:id", (req, res, next) => {
+  const id = parseInt(req.params.id,10)
+  console.log('update : ');
+  console.log(req.body.id);
+  Patient.updateOne(
+    { id : req.body.id},
+    { $set: {
+      'doctorid' : req.body.doctorid,
+      'name' : req.bodyname,
+      'age' : req.body.age,
+      'mobile' : req.body.mobile,
+      'description' : req.body.description
+    }
+  });
+});
+
+app.delete("/api/patient/:id", (req, res, next) => {
+  const id = parseInt(req.params.id,10)
+  Patient.findOne({id: id}).remove().exec();
 });
 
 module.exports = app;
