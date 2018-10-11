@@ -33,16 +33,14 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/patient", (req, res, next) => {
-  console.log(req.body);
   const patient = new Patient({
     id : req.body.id,
     doctorid : req.body.doctorid,
     name : req.body.name,
     age : req.body.age,
     phone : req.body.phone,
-    description : '' //req.body.description
+    description : 'new patient'
   });
-  console.log("it works");
   patient.save().then(createdPatient => {
     res.status(201).json({
       message: 'Patient added successfully',
