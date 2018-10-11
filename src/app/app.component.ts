@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Doctor } from './doctor';
 import { DoctorService } from './doctor.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -10,20 +11,24 @@ import { DoctorService } from './doctor.service';
 
 export class AppComponent {
   title = 'MedApp';
-  private _loggedUser: boolean = true;
+  private _loggedUser: boolean = false;
   private _registering: boolean = false;
 
   @Input() doctor: Doctor;
-
+  
   constructor (
-    private doctorService:DoctorService
+    private doctorService:DoctorService,
+    private http:HttpClient
   ){}
-/* REMOVE!!!!!*/
+
+/* REMOVE!!!!!
   ngOnInit() {
-    this.doctor = this.doctorService.getDoctor2("a");
-    /*
-    this.doctorService.getDoctor('a')
-  .subscribe(doctor => this.doctor = doctor);*/
+    this.http
+    .get<{message: string, doctorResult: Doctor}>('http://localhost:3000/api/doctors/a')
+    .subscribe((doctorData) => {
+      this.doctor = doctorData.doctorResult;
+      console.log(this.doctor);
+    });
   }
    /*REMOVE!!!!! */
 
@@ -36,8 +41,16 @@ export class AppComponent {
   }
 
   public setDoctor(data:string): void {
-    this.doctorService.getDoctor(data)
-    .subscribe(doctor => this.doctor = doctor);
+    /*this.doctorService.getDoctor(data)
+    .subscribe(doctor => this.doctor = doctor);*/
+
+    this.http
+    .get<{message: string, doctorResult: Doctor}>('http://localhost:3000/api/doctors/'+data)
+    .subscribe((doctorData) => {
+      this.doctor = doctorData.doctorResult;
+      console.log(this.doctor);
+    });
+
   }
 
 }
