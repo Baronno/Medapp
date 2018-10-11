@@ -8,3 +8,4 @@ module.exports = function() {
     .catch(() => {
       console.log('Connection failed !');
     });
+  }
