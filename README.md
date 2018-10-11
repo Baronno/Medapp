@@ -4,7 +4,7 @@ The purpose is of the project is goint to help the doctor to manage the patient 
 Front end:  
 Angular install.`npm install -g @angular/cli`
  
-Back end:
+Back end: 
 Mongodb--database   
 node.js   
 express   
