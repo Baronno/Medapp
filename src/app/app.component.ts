@@ -40,6 +40,19 @@ export class AppComponent {
     this._loggedUser = data;
   }
 
+  public logIn(email:string, password:string): boolean {
+    if (
+      this.http
+      .get<{message: string, loggedDoctor: Doctor}>('http://localhost:3000/api/login/'+email+'/'+password)
+      .subscribe((results) => {
+        this.doctor = results.loggedDoctor;
+        console.log(this.doctor);
+      })
+    ) {
+      return true;
+    } else return false;
+  }
+
   public setDoctor(data:string): void {
     /*this.doctorService.getDoctor(data)
     .subscribe(doctor => this.doctor = doctor);*/
@@ -50,7 +63,6 @@ export class AppComponent {
       this.doctor = doctorData.doctorResult;
       console.log(this.doctor);
     });
-
   }
 
 }

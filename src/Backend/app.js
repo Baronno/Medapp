@@ -126,15 +126,17 @@ app.delete("/api/patient/:id", (req, res, next) => {
   Patient.findOne({id: id}).remove().exec();
 });
 
-app.get("/api/doctors/:email", (req, res, next) => {
+app.get("/api/login/:email/:password", (req, res, next) => {
   const email = req.params.email;
-  console.log(req.params.email);
-  Doctor.findOne({email: email}).then(documents => {
+  const password = req.params.password;
+  console.log("email to log "+email);
+  console.log("passw to log "+password);
+  Doctor.findOne({email:email, password:password}).then(documents => {
     res.status(200).json({
-      message: 'successful!!!',
-      doctorResult: documents,
-    });   
-    console.log(documents);
+      message: 'login successful',
+      loggedDoctor: documents,
+      });
+  console.log(documents);
   });
 });
 
