@@ -15,7 +15,8 @@ export class AppComponent {
   private _registering: boolean = false;
 
   @Input() doctor: Doctor;
-  
+  private message: string;
+
   constructor (
     private doctorService:DoctorService,
     private http:HttpClient
@@ -40,29 +41,14 @@ export class AppComponent {
     this._loggedUser = data;
   }
 
-  public logIn(email:string, password:string): boolean {
-    if (
+  public logIn(email:string, password:string) {
+    console.log("before http request");
       this.http
       .get<{message: string, loggedDoctor: Doctor}>('http://localhost:3000/api/login/'+email+'/'+password)
       .subscribe((results) => {
         this.doctor = results.loggedDoctor;
-        console.log(this.doctor);
-      })
-    ) {
-      return true;
-    } else return false;
+        this.message = results.message;
+      });
+      console.log("after http doctor name: "+this.message);
   }
-
-  public setDoctor(data:string): void {
-    /*this.doctorService.getDoctor(data)
-    .subscribe(doctor => this.doctor = doctor);*/
-
-    this.http
-    .get<{message: string, doctorResult: Doctor}>('http://localhost:3000/api/doctors/'+data)
-    .subscribe((doctorData) => {
-      this.doctor = doctorData.doctorResult;
-      console.log(this.doctor);
-    });
-  }
-
 }

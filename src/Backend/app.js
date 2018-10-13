@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 var Patient = require('./patient');
 var Doctor = require('./doctor');
+//var SendMail = require('./sendmail');
 
 const app = express();
 
@@ -129,12 +130,10 @@ app.delete("/api/patient/:id", (req, res, next) => {
 app.get("/api/login/:email/:password", (req, res, next) => {
   const email = req.params.email;
   const password = req.params.password;
-  console.log("email to log "+email);
-  console.log("passw to log "+password);
   Doctor.findOne({email:email, password:password}).then(documents => {
-    res.status(200).json({
-      message: 'login successful',
+    res.status(200).json({      
       loggedDoctor: documents,
+      message: 'logged doctor success?',
       });
   console.log(documents);
   });

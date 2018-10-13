@@ -1,4 +1,4 @@
-﻿import { Doctor } from './doctor';
+﻿/*import { Doctor } from './doctor';
 
 export const DOCTORS: Doctor[] = [
     { id: 101, email: 'a', password: 'a', name: 'Fernando Huerta', phone: '488456841', specialty: 'Cardiology' },
@@ -6,3 +6,4 @@ export const DOCTORS: Doctor[] = [
     { id: 103, email: 'c', password: 'c', name: 'Renhui Zhou', phone: '466855423', specialty: 'Radiology' },
     { id: 104, email: 'd', password: 'd', name: 'Suhao Chen', phone: '466884413', specialty: 'Pediatry' }
 ];
+*/
