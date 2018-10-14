@@ -43,6 +43,7 @@ We are going to do the unit test by the Jazmine and Karma which provided by the 
  dependency and the backend
  ## Authors
 1 renhui zhou- front-end
+
  2           
   3          
    4         
