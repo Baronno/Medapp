@@ -51,12 +51,14 @@ For the first time to run the app.
 Firstly, open the mongodb and run the command mongod to start to mongod server.
 
  ```C:\Program Files\MongoDB\Server\4.0\bin>mongod ```
+ 
  Secondly, go tothe application src file and find the addFirst.js which store the doctor information. And then run the following command
  
   ```node addFirstDB.js ```
+  
  Thirdly, run the following command to connect to the database
- 
   ```node server.js ```
+  
 At the end, run the following to start the application
 
  ```npm start ```
@@ -64,17 +66,21 @@ At the end, run the following to start the application
 This project uses the mongodb which is convenient to use. In order to manage the data for the project, we can use the fowllowing command to operate.So the use of database is pretty important. First thing is go the mongod file.
 
 start the mongod 
+
 ```mongo.exe```
 
 show the data
+
 ```show dbs```
 ```db.collectionname.find()```
 
 create table
- ```db.createCollection()  ``` ```
+
+ ```db.createCollection()  ``` 
  
  data upadate and insert
- ```db.data.update() ``` ```
+ 
+ ```db.data.update() ``` 
  
 
    ## Architecture
@@ -84,11 +90,11 @@ create table
  
  mongodb
  
- the datebase used. the databaser has been used to store the data of our project.
+ The datebase used. the database has been used to store the data of our project. 
  
  express,node.js
  
- dependency and the backend. By using express and node.js, we can use the express to excute the http operation such as get, post, use and update. It allows us to receive the input from the front-end and give the dealed infromation to the front-end. On the other hand, it also connected to the database.
+ It's for dependency and the backend. By using express and node.js, we can use the express to excute the http operation such as get, post, use and update. It allows us to receive the input from the front-end and give the dealed infromation to the front-end. On the other hand, it also connected to the database.
  
  ## Deployment
  This application can be deployed on the AWS platform. 
