@@ -23,7 +23,7 @@ node.js
 ```npm install npm@latest -g```
 
 ## The components we used:
- add-patient --
+ add-patient
  home
  loginform
  navigate
@@ -32,7 +32,11 @@ node.js
  register
  
  These are components we are used in our project.  We separate the project into diffferent components so this is better to manage.
+## The service we used:
+Patient.service
+Doctor.service
 
+In this project, these two services were created to opeate the operations between different components, within this, the structure of the app is more clear. The component is for dispaly while the service is responsible for receive and send.In other words, any components can use the services as we want which clearly reduce the code and improve the effiency.
 ## How to use the app
 For the first time to run the app.
 
@@ -56,35 +60,32 @@ start the mongod
 
 show the data
 ```show dbs```
+```db.collectionname.find()```
 
 create table
- ```db.createCollection()  ```
+ ```db.createCollection()  ``` ```
  
- insert data
-  ```db.inventory.insertOne（）```
- delete data(This command will help to delete one data that you want )
- ```db.collection.deleteOne()```
- update data(for one )
- db.inventory.updateOne
-## Running the test
-We are going to do the unit test by the Jazmine and Karma which provided by the Angular
+ data upadate and insert
+ ```db.data.update() ``` ```
+ 
 
- ```npm test ```
+   ## Architecture
+ Angular2
+ 
+ the front-end web framework used. We use the angular to generate our front-end.
+ 
+ mongodb
+ 
+ the datebase used. the databaser has been used to store the data of our project.
+ 
+ express,node.js
+ 
+ dependency and the backend. By using express and node.js, we can use the express to excute the http operation such as get, post, use and update. It allows us to receive the input from the front-end and give the dealed infromation to the front-end. On the other hand, it also connected to the database.
+ 
  ## Deployment
- This application can be deployed on the AWS platform.
+ This application can be deployed on the AWS platform. 
  
- ## Built with
- Angular2 -
- 
- the front-end web framework used
- 
- mongodb -
- 
- the datebase used
- 
- exprees - 
- 
- dependency and the backend
+ https://aws.amazon.com/free
  ## Authors
 1 renhui zhou- front-end
 
