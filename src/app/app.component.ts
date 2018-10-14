@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Doctor } from './doctor';
 import { DoctorService } from './doctor.service';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,10 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   title = 'MedApp';
-  private _loggedUser: boolean = false;
+  _loggedUser: boolean = false;
   private _registering: boolean = false;
 
-  @Input() doctor: Doctor;
+  doctor: Doctor;
   
   constructor (
     private doctorService:DoctorService,
@@ -40,23 +41,21 @@ export class AppComponent {
     this._loggedUser = data;
   }
 
-  public logIn(email:string, password:string): boolean {
-    if (
-      this.http
-      .get<{message: string, loggedDoctor: Doctor}>('http://localhost:3000/api/login/'+email+'/'+password)
+  public logOut(): void {
+    this._loggedUser = false;
+    this.doctor = null;
+  }
+
+  public logIn(email:string, password:string): void {
+    this.http
+      .get<{message: boolean, loggedDoctor: Doctor}>('http://localhost:3000/api/login/'+email+'/'+password)
       .subscribe((results) => {
         this.doctor = results.loggedDoctor;
-        console.log(this.doctor);
-      })
-    ) {
-      return true;
-    } else return false;
+        this._loggedUser = results.message;
+      });
   }
 
   public setDoctor(data:string): void {
-    /*this.doctorService.getDoctor(data)
-    .subscribe(doctor => this.doctor = doctor);*/
-
     this.http
     .get<{message: string, doctorResult: Doctor}>('http://localhost:3000/api/doctors/'+data)
     .subscribe((doctorData) => {
@@ -64,5 +63,4 @@ export class AppComponent {
       console.log(this.doctor);
     });
   }
-
 }

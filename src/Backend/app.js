@@ -133,9 +133,9 @@ app.get("/api/login/:email/:password", (req, res, next) => {
   console.log("passw to log "+password);
   Doctor.findOne({email:email, password:password}).then(documents => {
     res.status(200).json({
-      message: 'login successful',
-      loggedDoctor: documents,
-      });
+      message: true,
+      loggedDoctor: documents=documents,
+      })  
   console.log(documents);
   });
 });
