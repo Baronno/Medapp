@@ -2,6 +2,7 @@
 The purpose is of the project is going to help the doctor to manage the patient information. It can show, edit, add, search and delete the information of the patients. And it can edit the doctor's information as well.
 ## Get started
 to run the application, by 
+
 ```npm start```
 ### Prerequest and install
 we need the environmet to do our project. So we choose the mean full stack application which includes the Mongoose, Express, Angular and node.js. 
@@ -24,16 +25,23 @@ node.js
 
 ## The components we used:
  add-patient
+ 
  home
+ 
  loginform
+ 
  navigate
+ 
  patient-detail
+ 
  patients
+ 
  register
  
  These are components we are used in our project.  We separate the project into diffferent components so this is better to manage.
 ## The service we used:
 Patient.service
+
 Doctor.service
 
 In this project, these two services were created to opeate the operations between different components, within this, the structure of the app is more clear. The component is for dispaly while the service is responsible for receive and send.In other words, any components can use the services as we want which clearly reduce the code and improve the effiency.
