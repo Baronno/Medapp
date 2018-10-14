@@ -36,7 +36,9 @@ node.js
  
  It's for dependency and the backend. By using express and node.js, we can use the express to excute the http operation such as get, post, use and update. It allows us to receive the input from the front-end and give the dealed infromation to the front-end. On the other hand, it also connected to the database.
  
+ 
 ## The components we used:
+
  add-patient
  
  home
@@ -58,6 +60,7 @@ Patient.service
 Doctor.service
 
 In this project, these two services were created to opeate the operations between different components, within this, the structure of the app is more clear. The component is for dispaly while the service is responsible for receive and send.In other words, any components can use the services as we want which clearly reduce the code and improve the effiency.
+
 ## How to use the app
 For the first time to run the app.
 
@@ -96,13 +99,17 @@ create table
  ```db.data.update() ``` 
  
 ## Express and node.js
+
 The express should run in the node environment. We use the express to built the server in the project, which consitute of many functions, to do the operations
+
 addDoctor.js
 
 It allows user to add the doctor
+
 addFirstDB.js
 
 this is the database where we store the data
+
 addPatient.js
 
 It allows user to add the patients
@@ -110,27 +117,35 @@ It allows user to add the patients
 app.js
 
 It will deal with the data from the frontend. For example, it will get the patient information and send back to show on the page.
+
 connect.js
 
 It is used to connect the database
+
 doctor.js
 
 It identify the doctor type which means the doctor's infromation type(string or number etc).
+
 exit.js
 
 It allows user to exit
+
 patient.js
 
 It identify the patient type which means the patient's infromation type(string or number etc).
+
 query.js
 
 It is for displaying the patient's information one by one, which means it will get the data from database and to display it in the page.
+
 server.js
 
 start the server and use it to listen the port
+
 testdb.js
 
 for the test
+
 updatePatient.js
 
 It is for updating the patients data.
@@ -143,6 +158,7 @@ All of thos these javascript play an important role in the server. It allows the
  This application can be deployed on the AWS platform. 
  
  https://aws.amazon.com/free
+ 
  ## Authors
 1 renhui zhou- front-end
 
