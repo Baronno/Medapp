@@ -36,6 +36,23 @@ node.js
  
  It's for dependency and the backend. By using express and node.js, we can use the express to excute the http operation such as get, post, use and update. It allows us to receive the input from the front-end and give the dealed infromation to the front-end. On the other hand, it also connected to the database.
  
+ ## How to use the app
+For the first time to run the app.
+
+Firstly, open the mongodb and run the command mongod to start to mongod server.
+
+ ```C:\Program Files\MongoDB\Server\4.0\bin>mongod ```
+ 
+ Secondly, go tothe application src file and find the addFirst.js which store the doctor information. And then run the following command
+ 
+  ```node addFirstDB.js ```
+  
+ Thirdly, run the following command to connect to the database
+  ```node server.js ```
+  
+At the end, run the following to start the application
+
+ ```npm start ```
  
 ## The components we used:
 
@@ -61,23 +78,7 @@ Doctor.service
 
 In this project, these two services were created to opeate the operations between different components, within this, the structure of the app is more clear. The component is for dispaly while the service is responsible for receive and send.In other words, any components can use the services as we want which clearly reduce the code and improve the effiency.
 
-## How to use the app
-For the first time to run the app.
 
-Firstly, open the mongodb and run the command mongod to start to mongod server.
-
- ```C:\Program Files\MongoDB\Server\4.0\bin>mongod ```
- 
- Secondly, go tothe application src file and find the addFirst.js which store the doctor information. And then run the following command
- 
-  ```node addFirstDB.js ```
-  
- Thirdly, run the following command to connect to the database
-  ```node server.js ```
-  
-At the end, run the following to start the application
-
- ```npm start ```
 ## database use
 This project uses the mongodb which is convenient to use. In order to manage the data for the project, we can use the fowllowing command to operate.So the use of database is pretty important. First thing is go the mongod file.
 
