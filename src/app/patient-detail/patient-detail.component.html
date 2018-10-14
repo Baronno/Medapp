@@ -1,6 +1,6 @@
 <h1 style="margin-top: 25px; margin-bottom: 25px">My patients</h1>
 
-<div *ngIf="!showPatient" class="alert">
+<div *ngIf="!_showPatient" class="alert">
   Patient not found
 </div>
 
@@ -35,7 +35,29 @@
   </div>
 </div>
 <button style="margin-bottom: 50px" (click)="goBack()">Back to list</button>
-<button (click)="removePatient(patient.id)" *ngIf="showPatient">Remove Patient</button>
+<button (click)="showReminder()" *ngIf="_showPatient">Set Reminder</button>
+<button (click)="removePatient(patient.id)" *ngIf="_showPatient">Remove Patient</button>
+
+<div *ngIf="_showReminder" style="margin-bottom: 50px">
+  <h1>Enter reminder details:</h1>
+  <div>
+    <form (submit)="sendReminder($event)">
+      <table>
+        <tr>
+          <td><label>Date:</label></td>
+          <td><input type="date" min="01-01-2018"/></td>
+        </tr>
+        <tr>
+          <td><label>Time:</label></td>
+          <td><input type="time" min="8:00" max="22:00"/></td>
+        </tr>
+      </table>
+      <div class="input">
+        <input type="submit" value="Send reminder"> 
+      </div>
+    </form>
+  </div>
+</div>
 
 
 

@@ -21,6 +21,10 @@ import {Observable, of} from 'rxjs';
 
 export class PatientDetailComponent implements OnInit {
  @Input() patient: Patient;
+ today = new Date().getDate();
+
+ _showPatient:boolean = true;
+ _showReminder:boolean = false;
 
   constructor(
               private http: HttpClient,
@@ -55,4 +59,19 @@ export class PatientDetailComponent implements OnInit {
       }
     }
   };
+
+  showReminder():void {
+    this._showReminder = true;
+  }
+
+  sendReminder(e){
+    e.preventDefault();
+    var date = e.target.elements[0].value;
+    var time = e.target.elements[1].value;
+    var thismail = "huerta.fhm@gmail.com";
+    var mailBody = ("This is a reminder you have an appointment on "+date+" at "+time);
+    this.http.get<{message: string, patients: Patient}>('/api/mail/'+thismail+'/'+mailBody);
+    console.log(mailBody);
+    this._showReminder = false;    
+  }
 }

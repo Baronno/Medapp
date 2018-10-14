@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 var Patient = require('./patient');
 var Doctor = require('./doctor');
+var SendMail = require('./sendMail');
 
 const app = express();
 
@@ -121,6 +122,8 @@ app.put("/api/patient/:id", (req, res, next) => {
   });
 });
 
+//SendMail.mailSend('huerta.fhm@gmail.com','this is a test2');
+
 app.delete("/api/patient/:id", (req, res, next) => {
   const id = parseInt(req.params.id,10)
   Patient.findOne({id: id}).remove().exec();
@@ -129,15 +132,23 @@ app.delete("/api/patient/:id", (req, res, next) => {
 app.get("/api/login/:email/:password", (req, res, next) => {
   const email = req.params.email;
   const password = req.params.password;
-  console.log("email to log "+email);
-  console.log("passw to log "+password);
   Doctor.findOne({email:email, password:password}).then(documents => {
     res.status(200).json({
       message: true,
       loggedDoctor: documents=documents,
-      })  
-  console.log(documents);
+      })
   });
+});
+
+app.post("/api/mail/:email/:mailbody", (req, res, next) => {
+  const email = req.params.email;
+  const mailbody = req.params.mailbody;
+  SendMail.mailSend(email,mailbody).then(documents => {
+    res.status(200).json({
+      message: 'mail was sent',
+    })
+  });
+  console.log("success");
 });
 
 module.exports = app;

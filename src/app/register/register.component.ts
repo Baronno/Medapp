@@ -49,7 +49,7 @@ export class RegisterComponent implements OnInit {
       this.showAlertEmail=true;
     else
       this.showAlertEmail=false;
-    if (this.emailExists)
+    if (this.emailExists(newEmail))
       this.showAlertEmailExists=true;
     else
       this.showAlertEmailExists=false;

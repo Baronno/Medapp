@@ -11,27 +11,16 @@ import { Observable } from 'rxjs';
 })
 
 export class AppComponent {
+
+  @Input() doctor: Doctor;
   title = 'MedApp';
   _loggedUser: boolean = false;
-  private _registering: boolean = false;
-
-  doctor: Doctor;
-  
+  _registering: boolean = false;
+ 
   constructor (
     private doctorService:DoctorService,
     private http:HttpClient
   ){}
-
-/* REMOVE!!!!!
-  ngOnInit() {
-    this.http
-    .get<{message: string, doctorResult: Doctor}>('http://localhost:3000/api/doctors/a')
-    .subscribe((doctorData) => {
-      this.doctor = doctorData.doctorResult;
-      console.log(this.doctor);
-    });
-  }
-   /*REMOVE!!!!! */
 
   public setRegistering(data:boolean)  {
     this._registering = data;
@@ -54,7 +43,7 @@ export class AppComponent {
         this._loggedUser = results.message;
       });
   }
-
+  /*
   public setDoctor(data:string): void {
     this.http
     .get<{message: string, doctorResult: Doctor}>('http://localhost:3000/api/doctors/'+data)
@@ -63,4 +52,5 @@ export class AppComponent {
       console.log(this.doctor);
     });
   }
+  */
 }
