@@ -160,9 +160,6 @@ All of thos these javascript play an important role in the server. It allows the
  https://aws.amazon.com/free
  
  ## Authors
-1 renhui zhou- front-end
-
- 2           
-  3          
-   4         
+1 renhui zhou
+       
  
