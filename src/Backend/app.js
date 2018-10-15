@@ -6,6 +6,8 @@ var Patient = require('./patient');
 var Doctor = require('./doctor');
 var SendMail = require('./sendMail');
 
+const { performance } = require('perf_hooks');
+
 const app = express();
 
 mongoose
@@ -129,15 +131,21 @@ app.delete("/api/patient/:id", (req, res, next) => {
   Patient.findOne({id: id}).remove().exec();
 });
 
-app.get("/api/login/:email/:password", (req, res, next) => {
+app.get("/api/login/:email/:password", (req, res) => {
   const email = req.params.email;
   const password = req.params.password;
+  const start = performance.now()
   Doctor.findOne({email:email, password:password}).then(documents => {
     res.status(200).json({
       message: true,
-      loggedDoctor: documents=documents,
+      id:documents.id,
+      email:documents.email,
+      name:documents.name,
+      phone:documents.phone,
+      specialty:documents.specialty,
       })
   });
+  console.log(performance.now() - start);  
 });
 
 app.post("/api/mail/:email/:mailbody", (req, res, next) => {

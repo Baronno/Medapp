@@ -12,7 +12,8 @@ import { Observable } from 'rxjs';
 
 export class AppComponent {
 
-  @Input() doctor: Doctor;
+  //@Input() doctor: Doctor;
+  doctor = new Doctor();
   title = 'MedApp';
   _loggedUser: boolean = false;
   _registering: boolean = false;
@@ -37,12 +38,17 @@ export class AppComponent {
 
   public logIn(email:string, password:string): void {
     this.http
-      .get<{message: boolean, loggedDoctor: Doctor}>('http://localhost:3000/api/login/'+email+'/'+password)
-      .subscribe((results) => {
-        this.doctor = results.loggedDoctor;
+      .get<{message: boolean, id:number, email:string, name:string, phone:string, specialty:string}>('http://localhost:3000/api/login/'+email+'/'+password)
+      .subscribe((results) => {        
+        this.doctor.email = results.email;
+        this.doctor.name = results.name;
+        this.doctor.id = results.id;
+        this.doctor.phone = results.phone;
+        this.doctor.specialty = results.specialty;
         this._loggedUser = results.message;
       });
   }
+
   /*
   public setDoctor(data:string): void {
     this.http
