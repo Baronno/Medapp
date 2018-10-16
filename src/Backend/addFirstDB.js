@@ -1,6 +1,5 @@
 var addPatient = require('./addPatient');
 var addDoctor = require('./addDoctor');
-var Exit = require('./exit');
 
 addPatient(215, 101, 'Alex Johnson', 21,'422156874', 'Healthy');
 addPatient(216, 102, 'Annie Jones', 19, '422455120', 'Under antibiotics');
@@ -15,9 +14,7 @@ addPatient(224, 101, 'Alex Thompson', 21 , '422115546', 'Under antibiotics');
 addPatient(225, 104, 'Bryan Nguyen' , 34 , '477552119', 'Healthy');
 addPatient(226, 104, 'Janis Joplin' , 34 , '423658410', 'Needs to stop smoking');
 
-addDoctor(101, 'a', 'a', 'Fernando Huerta', '488456841', 'Cardiology');
-addDoctor(102, 'b', 'b', 'Alexandre Correia', '422458454', 'Neurology');
-addDoctor(103, 'c', 'c', 'Renhui Zhou', '466855423', 'Radiology');
-addDoctor(104, 'd', 'd', 'Suhao Chen', '466884413', 'Pediatry');
-
-Exit();
+addDoctor(101, 'a@gmail.com', 'a', 'Fernando Huerta', '488456841', 'Cardiology');
+addDoctor(102, 'b@gmail.com', 'b', 'Alexandre Correia', '422458454', 'Neurology');
+addDoctor(103, 'c@gmail.com', 'c', 'Renhui Zhou', '466855423', 'Radiology');
+addDoctor(104, 'd@gmail.com', 'd', 'Suhao Chen', '466884413', 'Pediatry');

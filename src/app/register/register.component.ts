@@ -50,10 +50,12 @@ export class RegisterComponent implements OnInit {
     if (!regexpEmail.test(newEmail))
       this.showAlertEmail=true;
     else
+      console.log("else");
       this.http
-      .get<{message: string, emailExists: Boolean}>('http://localhost:3000/api/mail/' + newEmail)
+      .get<{message: string, number: number}>('http://localhost:3000/api/mail/' + newEmail)
       .subscribe((emailData) => {
-        this.showAlertEmail = emailData.emailExists;
+        if (emailData.number > 0)
+          this.showAlertEmail = true;
       });
 
     var newPassword = e.target.elements[2].value;

@@ -159,12 +159,9 @@ app.get("/api/mail/:email", (req, res, next) => {
   const email = req.params.email;
   Doctor.find({email: email}).countDocuments()
   .then(documents => {
-    const emailExists = false;
-    if (documents >= 1)
-      emailExists = true;
     res.status(200).json({
       message: 'succes',
-      emailExists: emailExists
+      number: documents
     })});
 });
 
