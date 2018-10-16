@@ -159,6 +159,7 @@ app.get("/api/mail/:email", (req, res, next) => {
   const email = req.params.email;
   Doctor.find({email: email}).countDocuments()
   .then(documents => {
+    console.log(documents);
     res.status(200).json({
       message: 'succes',
       number: documents

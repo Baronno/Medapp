@@ -46,11 +46,11 @@ export class RegisterComponent implements OnInit {
       this.showAlertName=false;
 
     var newEmail = e.target.elements[1].value;
+    this.showAlertEmail = false;
     var regexpEmail = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
     if (!regexpEmail.test(newEmail))
       this.showAlertEmail=true;
     else
-      console.log("else");
       this.http
       .get<{message: string, number: number}>('http://localhost:3000/api/mail/' + newEmail)
       .subscribe((emailData) => {
