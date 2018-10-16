@@ -28,8 +28,10 @@ export class RegisterComponent implements OnInit {
     private doctorService:DoctorService
   ) { }
 
-  ngOnInit() {    
+  ngOnInit() {
   }
+
+  // we need to implement this on database, just search if the email provided exists and return true if it does
 
   registerDoctor(e){
 
@@ -48,11 +50,11 @@ export class RegisterComponent implements OnInit {
     if (!regexpEmail.test(newEmail))
       this.showAlertEmail=true;
     else
-      this.showAlertEmail=false;
-    if (this.emailExists(newEmail))
-      this.showAlertEmailExists=true;
-    else
-      this.showAlertEmailExists=false;
+      this.http
+      .get<{message: string, emailExists: Boolean}>('http://localhost:3000/api/mail/' + newEmail)
+      .subscribe((emailData) => {
+        this.showAlertEmail = emailData.emailExists;
+      });
 
     var newPassword = e.target.elements[2].value;
     var regexpPass = new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/);
@@ -64,7 +66,7 @@ export class RegisterComponent implements OnInit {
     var passwordConfirm = e.target.elements[3].value;
     if (!(passwordConfirm===newPassword))
       this.showAlertConfirm=true;
-    else  
+    else
       this.showAlertConfirm=false;
 
     var newPhone = e.target.elements[4].value;
@@ -81,20 +83,15 @@ export class RegisterComponent implements OnInit {
       this.showAlertSpecialty=false;
 
     if (!(this.showAlertConfirm || this.showAlertEmail || this.showAlertEmailExists || this.showAlertName || this.showAlertPassword || this.showAlertPhone || this.showAlertSpecialty)){
-      
+
       var newId = this.doctorService.doctorNextId();
       this.newDoctor = Object.assign({id: newId, name: newName, email: newEmail, password: newPassword, phone: newPhone, specialty: newSpecialty});
-      this.doctorService.registerDoctor(this.newDoctor); 
-      window.confirm("Your details have been saved, "+this.newDoctor.name); 
+      this.doctorService.registerDoctor(this.newDoctor);
+      window.confirm("Your details have been saved, "+this.newDoctor.name);
       this.appComponent.setRegistering(false);
       this.router.navigate(['login']);
 
     }
-  }
-
-  // we need to implement this on database, just search if the email provided exists and return true if it does
-  emailExists(email:string): Boolean {
-    return false;
   }
 
   changeToLogin(){

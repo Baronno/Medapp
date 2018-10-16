@@ -138,7 +138,7 @@ app.get("/api/login/:email/:password", (req, res, next) => {
   Doctor.findOne({email:email, password:password}).then(documents => {
     res.status(200).json({
       message: true,
-      loggedDoctor: documents=documents,
+      loggedDoctor: documents=documents
       })
   });
   console.log(performance.now() - start);
@@ -149,10 +149,23 @@ app.post("/api/mail/:email/:mailbody", (req, res, next) => {
   const mailbody = req.params.mailbody;
   SendMail.mailSend(email,mailbody).then(documents => {
     res.status(200).json({
-      message: 'mail was sent',
+      message: 'mail was sent'
     })
   });
   console.log("success");
+});
+
+app.get("/api/mail/:email", (req, res, next) => {
+  const email = req.params.email;
+  Doctor.find({email: email}).countDocuments()
+  .then(documents => {
+    const emailExists = false;
+    if (documents >= 1)
+      emailExists = true;
+    res.status(200).json({
+      message: 'succes',
+      emailExists: emailExists
+    })});
 });
 
 module.exports = app;
