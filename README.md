@@ -56,22 +56,37 @@ At the end, run the following to start the application
  
 ## The components we used:
 
+app 
+This component is the main component, all of the other components are bulit based on the app component.
+
  add-patient
  
+ This component is for add the patient information.
+ 
  home
+ It's home page which shows Medapp image.
  
  loginform
  
+ This component stores the dashborad which links to the login form
  navigate
  
  patient-detail
+ This component will show the patient detial.
  
  patients
+ This component will show the patients page, and the patient detial is the sub-component of patients. 
  
  register
+ This component will show the register page which inculdes the doctor's register page.
+ 
+ navigate
+ This component will show the doctor's information which the user can edit.
  
  These are components we are used in our project.  We separate the project into diffferent components so this is better to manage.
+ 
 ## The service we used:
+
 Patient.service
 
 Doctor.service
@@ -80,6 +95,7 @@ In this project, these two services were created to opeate the operations betwee
 
 
 ## database use
+
 This project uses the mongodb which is convenient to use. In order to manage the data for the project, we can use the fowllowing command to operate.So the use of database is pretty important. First thing is go the mongod file.
 
 start the mongod 
