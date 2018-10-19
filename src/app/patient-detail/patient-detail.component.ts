@@ -69,8 +69,9 @@ export class PatientDetailComponent implements OnInit {
     e.preventDefault();
     var date = e.target.elements[0].value;
     var time = e.target.elements[1].value;
-    var thisMail = "huerta.fhm@gmail.com";
-    var mailBody = ("This is a reminder you have an appointment on "+date+" at "+time);
+    var thisMail = this.patient.email;
+    var mailBody = ("Hello "+this.patient.name+". This is a reminder you have an appointment on "
+      +date+" at "+time+" with doctor "+this.appComponent.doctor.name+".");
     var newMail = new EmailToSend;
     newMail.address = thisMail;
     newMail.mailBody = mailBody;
@@ -84,5 +85,15 @@ export class PatientDetailComponent implements OnInit {
     this.http.post<{message: string}>('http://localhost:3000/api/sendMail/', newMail);
     console.log(mailBody);
     this._showReminder = false;    
+  }
+
+  savePatientDetails() {
+
+    this.http
+      .get<{message: string}>('http://localhost:3000/api/updateDetails/'+this.patient.id+'/'+this.patient.description)
+      .subscribe((results) => {
+        this.message = results.message;
+      });
+  this.goBack();
   }
 }

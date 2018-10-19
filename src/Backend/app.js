@@ -84,11 +84,21 @@ app.get("/api/patient/:id", (req, res, next) => {
   const id = parseInt(req.params.id,10)
   Patient.findOne({id: id}).then(documents => {
     res.status(200).json({
-      message: 'succes',
+      message: 'success',
       patients: documents
     });
   });
 });
+
+app.get("/api/updateDetails/:id/:details", (req, res, next) => {
+  const id = parseInt(req.params.id,10);
+  const details = req.params.details;
+  Patient.updateOne({id:id},{description:details}).then(documents => {
+    res.status(200).json({
+      message: 'success',
+    })
+  })
+})
 
 app.get("/api/patients/:doctorid", (req, res, next) => {
   const doctorid = parseInt(req.params.doctorid,10)

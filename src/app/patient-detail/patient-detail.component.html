@@ -11,31 +11,31 @@
   <div>
     <table>
       <tr>
-        <td style="width: 15%">id: </td>
+        <td><label>id:</label></td>
         <td>{{patient.id}}</td>
       </tr>
       <tr>
-        <td><label>name:</label></td>
-        <td><input value="{{patient.name}}" placeholder="{{patient.name}}"/></td>
+        <td><label>email:</label></td>
+        <td>{{patient.email}}</td>
+      </tr>
+      <tr>
+        <td><label>phone:</label></td>
+        <td>{{patient.phone}}</td>
       </tr>
       <tr>
         <td><label>age:</label></td>
-        <td><input value="{{patient.age}}" placeholder="{{patient.age}}"/></td>
-      </tr>
-      <tr>
-        <td><label>mobile:</label></td>
-        <td><input value="{{patient.phone}}" placeholder="{{patient.phone}}"/></td>
-      </tr>
+        <td>{{patient.age}}</td>
+      </tr>      
       <tr>
         <td><label>notes:</label></td>
-        <td><textarea placeholder="Enter details" rows="10" cols="30">{{patient.description}}
+        <td><textarea placeholder="Enter details" [(ngModel)]="patient.description" rows="10" cols="30">{{patient.description}}
           </textarea></td>
       </tr>
     </table>
   </div>
 </div>
-<button style="margin-bottom: 50px" (click)="goBack()">Back to list</button>
-<button (click)="showReminder()" *ngIf="_showPatient">Set Reminder</button>
+<button style="margin-bottom: 50px" (click)="savePatientDetails()">Save details</button>
+<button (click)="showReminder()" *ngIf="_showPatient">Send Appointment reminder</button>
 <button (click)="removePatient(patient.id)" *ngIf="_showPatient">Remove Patient</button>
 
 <div *ngIf="_showReminder" style="margin-bottom: 50px">

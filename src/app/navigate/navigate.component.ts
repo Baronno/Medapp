@@ -14,15 +14,8 @@ export class NavigateComponent implements OnInit {
   ) { }
 
   doctor:Doctor = this.appComponent.doctor;
-  doctorOriginal:Doctor;
   
   ngOnInit() {
-  }
-
-  undoChanges() {    
-    console.log('doctor name'+this.doctor.name);
-    console.log('doctor saved name'+this.doctorOriginal.name);
-    this.doctor = this.doctorOriginal;
   }
 
 }

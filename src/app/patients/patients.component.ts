@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 import { Patient } from '../patient';
-import {PatientService} from '../patient.service';
 
 import {Observable, of} from 'rxjs';
 
