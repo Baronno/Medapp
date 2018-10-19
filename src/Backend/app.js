@@ -43,7 +43,8 @@ app.post("/api/patient", (req, res, next) => {
     name : req.body.name,
     age : req.body.age,
     phone : req.body.phone,
-    description : 'new patient'
+    description : 'new patient',
+    email : req.body.email
   });
   patient.save().then(createdPatient => {
     res.status(201).json({
@@ -56,16 +57,16 @@ app.post("/api/patient", (req, res, next) => {
 app.post("/api/doctor", (req, res, next) => {
   const doctor = new Datient({
     id : req.body.id,
-    doctorid : req.body.doctorid,
+    email : req.body.email,
+    password : req.body.password,
     name : req.body.name,
-    age : req.body.age,
     phone : req.body.phone,
-    description : 'new doctor'
+    specialty : req.body.specialty
   });
   patient.save().then(createdDoctor => {
     res.status(201).json({
       message: 'Doctor added successfully',
-      datientId: createdDoctor._id
+      doctorId: createdDoctor._id
     });
   });
 });
@@ -124,8 +125,6 @@ app.put("/api/patient/:id", (req, res, next) => {
   });
 });
 
-//SendMail.mailSend('huerta.fhm@gmail.com','this is a test2');
-
 app.delete("/api/patient/:id", (req, res, next) => {
   const id = parseInt(req.params.id,10)
   Patient.findOne({id: id}).remove().exec();
@@ -144,15 +143,13 @@ app.get("/api/login/:email/:password", (req, res, next) => {
   console.log(performance.now() - start);
 });
 
-app.post("/api/mail/:email/:mailbody", (req, res, next) => {
-  const email = req.params.email;
-  const mailbody = req.params.mailbody;
-  SendMail.mailSend(email,mailbody).then(documents => {
-    res.status(200).json({
-      message: 'mail was sent'
-    })
-  });
-  console.log("success");
+app.get("/api/sendMail/:address/:mailBody", (req, res, next) => {
+  const address = req.params.address;
+  const mailBody = req.params.mailBody;
+  SendMail.mailSend(address,mailBody);
+  res.status(200).json({
+      message: 'sent mail',
+  })
 });
 
 app.get("/api/mail/:email", (req, res, next) => {

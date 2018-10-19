@@ -12,7 +12,7 @@ var mailSend = function mailSend(email, body) {
   let mailOptions = {
     from: '"Medappservice" <medappservice@gmail.com>',
     to: email,
-    subject: 'Appointment reminding!',
+    subject: 'MedApp: Appointment reminder',
     text: body
   };
   transporter.sendMail(mailOptions,(error,info) => {

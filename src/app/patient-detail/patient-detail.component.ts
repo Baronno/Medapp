@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Patient} from '../patient';
+import { EmailToSend } from '../emailToSend';
 import { PatientService } from '../patient.service';
 import { AppComponent } from '../app.component';
 
@@ -22,15 +23,16 @@ import {Observable, of} from 'rxjs';
 export class PatientDetailComponent implements OnInit {
  @Input() patient: Patient;
  today = new Date().getDate();
+ message:string = "";
 
  _showPatient:boolean = true;
  _showReminder:boolean = false;
 
   constructor(
-              private http: HttpClient,
-              private route: ActivatedRoute,
-              private appComponent:AppComponent,
-              private location: Location) {
+    private http: HttpClient,
+    private route: ActivatedRoute,
+    private appComponent:AppComponent,
+    private location: Location) {
   }
 
   ngOnInit(): void {
@@ -68,9 +70,19 @@ export class PatientDetailComponent implements OnInit {
     e.preventDefault();
     var date = e.target.elements[0].value;
     var time = e.target.elements[1].value;
-    var thismail = "huerta.fhm@gmail.com";
+    var thisMail = "huerta.fhm@gmail.com";
     var mailBody = ("This is a reminder you have an appointment on "+date+" at "+time);
-    this.http.get<{message: string, patients: Patient}>('/api/mail/'+thismail+'/'+mailBody);
+    var newMail = new EmailToSend;
+    newMail.address = thisMail;
+    newMail.mailBody = mailBody;
+
+    this.http
+      .get<{message: string}>('http://localhost:3000/api/sendMail/'+thisMail+'/'+mailBody)
+      .subscribe((results) => {
+        this.message = results.message;
+      });
+
+    this.http.post<{message: string}>('http://localhost:3000/api/sendMail/', newMail);
     console.log(mailBody);
     this._showReminder = false;    
   }
