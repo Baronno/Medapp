@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 import { Doctor } from '../doctor';
-import { DoctorService } from '../doctor.service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +24,6 @@ export class RegisterComponent implements OnInit {
     private http: HttpClient,
     private router:Router,
     private appComponent:AppComponent,
-    private doctorService:DoctorService
   ) { }
 
   ngOnInit() {
@@ -86,18 +84,22 @@ export class RegisterComponent implements OnInit {
 
     if (!(this.showAlertConfirm || this.showAlertEmail || this.showAlertEmailExists || this.showAlertName || this.showAlertPassword || this.showAlertPhone || this.showAlertSpecialty)){
 
-      var newId = this.doctorService.doctorNextId();
-      this.newDoctor = Object.assign({id: newId, name: newName, email: newEmail, password: newPassword, phone: newPhone, specialty: newSpecialty});
-      this.doctorService.registerDoctor(this.newDoctor);
-      window.confirm("Your details have been saved, "+this.newDoctor.name);
-      this.appComponent.setRegistering(false);
-      this.router.navigate(['login']);
-
+      this.http.get<{message: string, doctor: Doctor}>("http://localhost:3000/api/maxidDoctor")
+      .subscribe((doctorData) => {
+        this.newDoctor = doctorData.doctor;
+        var newId = this.newDoctor.id + 1;
+        this.newDoctor = { id: newId, email: newEmail, password: newPassword, name: newName, phone: newPhone, specialty: newSpecialty};
+        if (this.http.post<{message: string, doctor: Doctor}>("http://localhost:3000/api/doctor", this.newDoctor)
+        .subscribe()) {
+          window.confirm("Your details have been saved, "+this.newDoctor.name);
+          this.appComponent.setRegistering(false);
+          this.router.navigate(['login']);
+        }    
+      })
     }
   }
 
   changeToLogin(){
     this.appComponent.setRegistering(false);
   }
-
 }

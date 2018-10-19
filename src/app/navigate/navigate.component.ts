@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from '../doctor';
 import { AppComponent } from '../app.component';
-import { DoctorService } from '../doctor.service';
 
 @Component({
   selector: 'app-navigate',
@@ -12,7 +11,6 @@ export class NavigateComponent implements OnInit {
 
   constructor(
     private appComponent: AppComponent,
-    private doctorService: DoctorService 
   ) { }
 
   doctor:Doctor = this.appComponent.doctor;

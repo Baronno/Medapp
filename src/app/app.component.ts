@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { Doctor } from './doctor';
-import { DoctorService } from './doctor.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -18,7 +17,6 @@ export class AppComponent {
   _registering: boolean = false;
  
   constructor (
-    private doctorService:DoctorService,
     private http:HttpClient
   ){}
 

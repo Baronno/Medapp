@@ -55,7 +55,7 @@ app.post("/api/patient", (req, res, next) => {
 });
 
 app.post("/api/doctor", (req, res, next) => {
-  const doctor = new Datient({
+  const doctor = new Doctor({
     id : req.body.id,
     email : req.body.email,
     password : req.body.password,
@@ -63,7 +63,7 @@ app.post("/api/doctor", (req, res, next) => {
     phone : req.body.phone,
     specialty : req.body.specialty
   });
-  patient.save().then(createdDoctor => {
+  doctor.save().then(createdDoctor => {
     res.status(201).json({
       message: 'Doctor added successfully',
       doctorId: createdDoctor._id
@@ -105,6 +105,15 @@ app.get("/api/maxid", (req, res, next) => {
     res.status(200).json({
       message: 'succes',
       patient: documents
+    });
+  });
+});
+
+app.get("/api/maxidDoctor", (req, res, next) => {
+  Doctor.findOne().sort({id:-1}).then(documents => {
+    res.status(200).json({
+      message: 'succes',
+      doctor: documents
     });
   });
 });

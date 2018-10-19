@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 
 import { Patient } from '../patient';
 
-import { PatientService } from '../patient.service';
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -77,6 +76,7 @@ export class AddPatientComponent implements OnInit {
       
         if (this.http.post<{message: string, patients: Patient}>("http://localhost:3000/api/patient", this.patient)
         .subscribe()) {
+          window.confirm("Patient "+this.patient.name+" has been saved");
           this.goBack();
         }    
       })

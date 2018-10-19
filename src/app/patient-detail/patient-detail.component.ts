@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 
 import { Patient} from '../patient';
 import { EmailToSend } from '../emailToSend';
-import { PatientService } from '../patient.service';
 import { AppComponent } from '../app.component';
 
 import {Observable, of} from 'rxjs';
