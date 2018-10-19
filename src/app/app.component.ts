@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Doctor } from './doctor';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -41,14 +40,4 @@ export class AppComponent {
         this._loggedUser = results.message;
       });
   }
-  /*
-  public setDoctor(data:string): void {
-    this.http
-    .get<{message: string, doctorResult: Doctor}>('http://localhost:3000/api/doctors/'+data)
-    .subscribe((doctorData) => {
-      this.doctor = doctorData.doctorResult;
-      console.log(this.doctor);
-    });
-  }
-  */
 }

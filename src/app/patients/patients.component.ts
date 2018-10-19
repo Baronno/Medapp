@@ -1,11 +1,7 @@
 import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
 import { Patient } from '../patient';
-
-import {Observable, of} from 'rxjs';
-
 import { AppComponent } from '../app.component';
 
 @Component({

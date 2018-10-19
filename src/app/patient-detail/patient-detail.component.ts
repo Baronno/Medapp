@@ -2,12 +2,10 @@ import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
 import { Patient} from '../patient';
 import { EmailToSend } from '../emailToSend';
 import { AppComponent } from '../app.component';
 
-import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-patient-detail',

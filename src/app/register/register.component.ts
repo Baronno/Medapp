@@ -29,8 +29,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  // we need to implement this on database, just search if the email provided exists and return true if it does
-
   registerDoctor(e){
 
     e.preventDefault();

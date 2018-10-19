@@ -1,10 +1,11 @@
+/*
+This component consists of a form to add a new patient which will be added to the
+database and automatically saved with the doctorId of the doctor who is logged in*/
+
 import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { Location } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-
 import { Patient } from '../patient';
-
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -20,6 +21,7 @@ import { AppComponent } from '../app.component';
 export class AddPatientComponent implements OnInit {
   @Input() patient: Patient;
 
+  //These variables are to show alerts in the interface
   showAlertName:boolean = false;
   showAlertEmail:boolean = false;
   showAlertAge:boolean = false;
@@ -28,7 +30,6 @@ export class AddPatientComponent implements OnInit {
 
   constructor(
     private location:Location,
-    private router:Router,
     private appComponent:AppComponent,
     private http: HttpClient
   ) { }
@@ -38,6 +39,8 @@ export class AddPatientComponent implements OnInit {
 
   registerPatient(e) {
 
+    //All the input fields are tested against regular expressions so they match 
+    // the required format
     e.preventDefault();
     var newName = e.target.elements[0].value;
     var regexpName = new RegExp(/^[A-Za-z]{2,} [A-Za-z]{2,}/);
@@ -67,6 +70,7 @@ export class AddPatientComponent implements OnInit {
     else
       this.showAlertPhone=false;
 
+    // If there are no alerts, the system calls the backend to store the new patient
     if (!(this.showAlertAge || this.showAlertEmail || this.showAlertName || this.showAlertPhone )) {
       this.http.get<{message: string, patient: Patient}>("http://localhost:3000/api/maxid")
       .subscribe((patientData) => {
