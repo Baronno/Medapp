@@ -1,3 +1,6 @@
+/*
+This component is used to register a new doctor
+*/
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -11,6 +14,7 @@ import { Doctor } from '../doctor';
 })
 export class RegisterComponent implements OnInit {
 
+  //These boolean variables are used to show alerts to the user
   showAlertName:boolean = false;
   showAlertEmail:boolean = false;
   showAlertEmailExists:boolean = false;
@@ -34,6 +38,8 @@ export class RegisterComponent implements OnInit {
     e.preventDefault();
     console.log(e);
 
+    //All the inputs are tested against regular expressions: if they are not met then 
+    // an alert is displayed
     var newName = e.target.elements[0].value;
     var regexpName = new RegExp(/^[A-Za-z]{2,} [A-Za-z]{2,}/);
     if (!regexpName.test(newName))
@@ -82,6 +88,7 @@ export class RegisterComponent implements OnInit {
 
     if (!(this.showAlertConfirm || this.showAlertEmail || this.showAlertEmailExists || this.showAlertName || this.showAlertPassword || this.showAlertPhone || this.showAlertSpecialty)){
 
+      //This calls for the backend to store the doctor's details. The ID is automatically updated
       this.http.get<{message: string, doctor: Doctor}>("http://localhost:3000/api/maxidDoctor")
       .subscribe((doctorData) => {
         this.newDoctor = doctorData.doctor;

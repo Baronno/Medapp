@@ -1,3 +1,8 @@
+/*
+This component is used for logging in. It takes the values from the login form and
+calls the function in app component to check in the database if the credentials are 
+correct.
+*/
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
@@ -9,6 +14,7 @@ import { AppComponent } from '../app.component';
 })
 export class LoginformComponent implements OnInit {
 
+  // This variable is set to true if an alert needs to be shown in the interface
   showAlert:boolean = false;
 
   constructor(

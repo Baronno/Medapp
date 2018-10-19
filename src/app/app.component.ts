@@ -1,3 +1,6 @@
+/*
+This is the main component of the app, where the details of the logged in doctor are stored
+*/
 import { Component, Input } from '@angular/core';
 import { Doctor } from './doctor';
 import { HttpClient } from '@angular/common/http';

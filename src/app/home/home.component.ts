@@ -1,4 +1,8 @@
+/*
+This component only shows an image when the user logs in
+*/
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
 
 @Component({
@@ -9,16 +13,19 @@ import { AppComponent } from '../app.component';
 export class HomeComponent implements OnInit {
 
   constructor(
-    private appComponent:AppComponent
+    private appComponent:AppComponent,
+    private router:Router,
   ) { }
 
+  //When initialised, if the doctor's details are correct, it sets the loggedUser variable in
+  // app component to true, otherwise it returns to login page
   ngOnInit() {
     if (this.appComponent.doctor.name) {
       this.appComponent.setLoggedUser(true);
-      console.log("user was "+this.appComponent.doctor.name);
     }
     if (this.appComponent.doctor.name == null) {
-      console.log("user was null");
+      this.appComponent.setLoggedUser(false);
+      this.router.navigate(['login']);
     }       
   }
 

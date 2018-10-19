@@ -1,3 +1,6 @@
+/*
+This component shows the list of patients that belong exclusively to the doctor who is logged in
+*/
 import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -28,6 +31,8 @@ export class PatientsComponent implements OnInit {
   }
   searchString:string = '';
 
+  //This method is called everytime a new character is added or deleted from the search box, so it 
+  // dynamically feeds the list of patients
   getPatients(): void {
     this.http
     .get<{message: string, patients: Patient[]}>('http://localhost:3000/api/patients/' + this.appComponent.doctor.id)

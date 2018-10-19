@@ -1,3 +1,8 @@
+/*
+This component is used to show the details of a patient that was chosen
+from the patients list. It also has a form to be filled to send a reminder
+to the patient's email
+*/
 import { Component, Input, OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -63,6 +68,7 @@ export class PatientDetailComponent implements OnInit {
     this._showReminder = true;
   }
 
+  //This method calls a javascript file in the backend to send a mail to the user
   sendReminder(e){
     e.preventDefault();
     var date = e.target.elements[0].value;

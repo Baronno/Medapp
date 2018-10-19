@@ -1,3 +1,6 @@
+/*
+This component is used to show the details of the logged in doctor
+*/
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from '../doctor';
 import { AppComponent } from '../app.component';
